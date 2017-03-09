@@ -1,0 +1,10 @@
+[{
+  "modid": "recipinator",
+  "name": "Recipinator",
+  "description": "Make and change recipes through Lua",
+  "version": "1.0.0",
+  "mcversion": "1.7.10",
+  "url": "https://github.com/Techlone/Recipenator",
+  "updateUrl": "https://github.com/Techlone/Recipenator/releases",
+  "authorList": ["Techlone"]
+}]

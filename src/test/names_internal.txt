@@ -1,0 +1,1629 @@
+
+minecraft
+
+	leather_boots
+		Name: minecraft:leather_boots
+	water_bucket
+		Name: minecraft:water_bucket
+	chainmail_helmet
+		Name: minecraft:chainmail_helmet
+	pumpkin_seeds
+		Name: minecraft:pumpkin_seeds
+	egg
+		Name: minecraft:egg
+	birch_stairs
+		Name: minecraft:birch_stairs
+	beef
+		Name: minecraft:beef
+	baked_potato
+		Name: minecraft:baked_potato
+	mossy_cobblestone
+		Name: minecraft:mossy_cobblestone
+	nether_brick_fence
+		Name: minecraft:nether_brick_fence
+	diamond_ore
+		Name: minecraft:diamond_ore
+	cake
+		Name: minecraft:cake
+	slime_ball
+		Name: minecraft:slime_ball
+	fire
+		Name: minecraft:fire
+	stick
+		Name: minecraft:stick
+	stained_glass_pane
+		Name: minecraft:stained_glass_pane
+	hardened_clay
+		Name: minecraft:hardened_clay
+	dragon_egg
+		Name: minecraft:dragon_egg
+	diamond_boots
+		Name: minecraft:diamond_boots
+	leaves2
+		Name: minecraft:leaves2
+	packed_ice
+		Name: minecraft:packed_ice
+	record_wait
+		Name: minecraft:record_wait
+	waterlily
+		Name: minecraft:waterlily
+	enchanting_table
+		Name: minecraft:enchanting_table
+	wooden_sword
+		Name: minecraft:wooden_sword
+	gunpowder
+		Name: minecraft:gunpowder
+	nether_brick
+		Name: minecraft:nether_brick
+	cocoa
+		Name: minecraft:cocoa
+	flowing_lava
+		Name: minecraft:flowing_lava
+	bucket
+		Name: minecraft:bucket
+	lapis_ore
+		Name: minecraft:lapis_ore
+	gold_block
+		Name: minecraft:gold_block
+	writable_book
+		Name: minecraft:writable_book
+	trapdoor
+		Name: minecraft:trapdoor
+	golden_helmet
+		Name: minecraft:golden_helmet
+	redstone
+		Name: minecraft:redstone
+	stone_axe
+		Name: minecraft:stone_axe
+	sponge
+		Name: minecraft:sponge
+	ender_eye
+		Name: minecraft:ender_eye
+	daylight_detector
+		Name: minecraft:daylight_detector
+	milk_bucket
+		Name: minecraft:milk_bucket
+	deadbush
+		Name: minecraft:deadbush
+	stone_sword
+		Name: minecraft:stone_sword
+	chest_minecart
+		Name: minecraft:chest_minecart
+	clay
+		Name: minecraft:clay
+	stone_brick_stairs
+		Name: minecraft:stone_brick_stairs
+	diamond_leggings
+		Name: minecraft:diamond_leggings
+	iron_boots
+		Name: minecraft:iron_boots
+	end_stone
+		Name: minecraft:end_stone
+	grass
+		Name: minecraft:grass
+	diamond_helmet
+		Name: minecraft:diamond_helmet
+	cactus
+		Name: minecraft:cactus
+	quartz_block
+		Name: minecraft:quartz_block
+	netherbrick
+		Name: minecraft:netherbrick
+	diamond_chestplate
+		Name: minecraft:diamond_chestplate
+	carrots
+		Name: minecraft:carrots
+	wheat
+		Name: minecraft:wheat
+	name_tag
+		Name: minecraft:name_tag
+	double_stone_slab
+		Name: minecraft:double_stone_slab
+	stone_pickaxe
+		Name: minecraft:stone_pickaxe
+	iron_helmet
+		Name: minecraft:iron_helmet
+	quartz_ore
+		Name: minecraft:quartz_ore
+	wooden_hoe
+		Name: minecraft:wooden_hoe
+	golden_axe
+		Name: minecraft:golden_axe
+	piston
+		Name: minecraft:piston
+	cobblestone_wall
+		Name: minecraft:cobblestone_wall
+	iron_leggings
+		Name: minecraft:iron_leggings
+	chainmail_chestplate
+		Name: minecraft:chainmail_chestplate
+	ender_chest
+		Name: minecraft:ender_chest
+	speckled_melon
+		Name: minecraft:speckled_melon
+	dye
+		Name: minecraft:dye
+	red_mushroom_block
+		Name: minecraft:red_mushroom_block
+	fish
+		Name: minecraft:fish
+	record_mellohi
+		Name: minecraft:record_mellohi
+	melon_block
+		Name: minecraft:melon_block
+	command_block_minecart
+		Name: minecraft:command_block_minecart
+	repeater
+		Name: minecraft:repeater
+	bed
+		Name: minecraft:bed
+	cooked_porkchop
+		Name: minecraft:cooked_porkchop
+	mycelium
+		Name: minecraft:mycelium
+	wool
+		Name: minecraft:wool
+	saddle
+		Name: minecraft:saddle
+	furnace
+		Name: minecraft:furnace
+	redstone_ore
+		Name: minecraft:redstone_ore
+	red_flower
+		Name: minecraft:red_flower
+	spawn_egg
+		Name: minecraft:spawn_egg
+	cooked_beef
+		Name: minecraft:cooked_beef
+	ice
+		Name: minecraft:ice
+	hay_block
+		Name: minecraft:hay_block
+	dark_oak_stairs
+		Name: minecraft:dark_oak_stairs
+	stone_slab
+		Name: minecraft:stone_slab
+	farmland
+		Name: minecraft:farmland
+	iron_axe
+		Name: minecraft:iron_axe
+	blaze_rod
+		Name: minecraft:blaze_rod
+	leaves
+		Name: minecraft:leaves
+	gold_ingot
+		Name: minecraft:gold_ingot
+	nether_wart
+		Name: minecraft:nether_wart
+	stone_button
+		Name: minecraft:stone_button
+	melon
+		Name: minecraft:melon
+	stone_pressure_plate
+		Name: minecraft:stone_pressure_plate
+	iron_bars
+		Name: minecraft:iron_bars
+	wooden_button
+		Name: minecraft:wooden_button
+	wheat_seeds
+		Name: minecraft:wheat_seeds
+	stone_shovel
+		Name: minecraft:stone_shovel
+	glass
+		Name: minecraft:glass
+	chest
+		Name: minecraft:chest
+	obsidian
+		Name: minecraft:obsidian
+	stone_stairs
+		Name: minecraft:stone_stairs
+	wooden_pressure_plate
+		Name: minecraft:wooden_pressure_plate
+	sticky_piston
+		Name: minecraft:sticky_piston
+	furnace_minecart
+		Name: minecraft:furnace_minecart
+	end_portal_frame
+		Name: minecraft:end_portal_frame
+	diamond_sword
+		Name: minecraft:diamond_sword
+	cooked_fished
+		Name: minecraft:cooked_fished
+	sand
+		Name: minecraft:sand
+	golden_hoe
+		Name: minecraft:golden_hoe
+	cooked_chicken
+		Name: minecraft:cooked_chicken
+	beacon
+		Name: minecraft:beacon
+	diamond_horse_armor
+		Name: minecraft:diamond_horse_armor
+	glowstone_dust
+		Name: minecraft:glowstone_dust
+	leather_leggings
+		Name: minecraft:leather_leggings
+	mushroom_stew
+		Name: minecraft:mushroom_stew
+	carpet
+		Name: minecraft:carpet
+	flint
+		Name: minecraft:flint
+	emerald
+		Name: minecraft:emerald
+	potatoes
+		Name: minecraft:potatoes
+	string
+		Name: minecraft:string
+	book
+		Name: minecraft:book
+	wooden_shovel
+		Name: minecraft:wooden_shovel
+	jukebox
+		Name: minecraft:jukebox
+	dispenser
+		Name: minecraft:dispenser
+	apple
+		Name: minecraft:apple
+	spider_eye
+		Name: minecraft:spider_eye
+	lava
+		Name: minecraft:lava
+	reeds
+		Name: minecraft:reeds
+	golden_boots
+		Name: minecraft:golden_boots
+	redstone_lamp
+		Name: minecraft:redstone_lamp
+	diamond_axe
+		Name: minecraft:diamond_axe
+	pumpkin_pie
+		Name: minecraft:pumpkin_pie
+	coal_block
+		Name: minecraft:coal_block
+	stained_hardened_clay
+		Name: minecraft:stained_hardened_clay
+	heavy_weighted_pressure_plate
+		Name: minecraft:heavy_weighted_pressure_plate
+	potion
+		Name: minecraft:potion
+	gold_nugget
+		Name: minecraft:gold_nugget
+	double_plant
+		Name: minecraft:double_plant
+	record_strad
+		Name: minecraft:record_strad
+	crafting_table
+		Name: minecraft:crafting_table
+	wooden_pickaxe
+		Name: minecraft:wooden_pickaxe
+	brown_mushroom_block
+		Name: minecraft:brown_mushroom_block
+	flower_pot
+		Name: minecraft:flower_pot
+	diamond_pickaxe
+		Name: minecraft:diamond_pickaxe
+	diamond_block
+		Name: minecraft:diamond_block
+	bone
+		Name: minecraft:bone
+	golden_carrot
+		Name: minecraft:golden_carrot
+	stone
+		Name: minecraft:stone
+	magma_cream
+		Name: minecraft:magma_cream
+	cauldron
+		Name: minecraft:cauldron
+	melon_seeds
+		Name: minecraft:melon_seeds
+	wooden_slab
+		Name: minecraft:wooden_slab
+	feather
+		Name: minecraft:feather
+	lit_pumpkin
+		Name: minecraft:lit_pumpkin
+	acacia_stairs
+		Name: minecraft:acacia_stairs
+	soul_sand
+		Name: minecraft:soul_sand
+	dropper
+		Name: minecraft:dropper
+	iron_chestplate
+		Name: minecraft:iron_chestplate
+	fire_charge
+		Name: minecraft:fire_charge
+	diamond_shovel
+		Name: minecraft:diamond_shovel
+	glowstone
+		Name: minecraft:glowstone
+	sandstone_stairs
+		Name: minecraft:sandstone_stairs
+	golden_horse_armor
+		Name: minecraft:golden_horse_armor
+	experience_bottle
+		Name: minecraft:experience_bottle
+	iron_sword
+		Name: minecraft:iron_sword
+	portal
+		Name: minecraft:portal
+	golden_leggings
+		Name: minecraft:golden_leggings
+	cookie
+		Name: minecraft:cookie
+	bookshelf
+		Name: minecraft:bookshelf
+	record_chirp
+		Name: minecraft:record_chirp
+	record_ward
+		Name: minecraft:record_ward
+	leather
+		Name: minecraft:leather
+	gravel
+		Name: minecraft:gravel
+	minecart
+		Name: minecraft:minecart
+	nether_brick_stairs
+		Name: minecraft:nether_brick_stairs
+	command_block
+		Name: minecraft:command_block
+	jungle_stairs
+		Name: minecraft:jungle_stairs
+	record_cat
+		Name: minecraft:record_cat
+	flint_and_steel
+		Name: minecraft:flint_and_steel
+	tnt
+		Name: minecraft:tnt
+	snowball
+		Name: minecraft:snowball
+	mob_spawner
+		Name: minecraft:mob_spawner
+	carrot_on_a_stick
+		Name: minecraft:carrot_on_a_stick
+	detector_rail
+		Name: minecraft:detector_rail
+	glass_bottle
+		Name: minecraft:glass_bottle
+	log
+		Name: minecraft:log
+	anvil
+		Name: minecraft:anvil
+	leather_chestplate
+		Name: minecraft:leather_chestplate
+	fireworks
+		Name: minecraft:fireworks
+	sandstone
+		Name: minecraft:sandstone
+	iron_ingot
+		Name: minecraft:iron_ingot
+	nether_star
+		Name: minecraft:nether_star
+	oak_stairs
+		Name: minecraft:oak_stairs
+	bedrock
+		Name: minecraft:bedrock
+	web
+		Name: minecraft:web
+	potato
+		Name: minecraft:potato
+	ender_pearl
+		Name: minecraft:ender_pearl
+	brick_block
+		Name: minecraft:brick_block
+	poisonous_potato
+		Name: minecraft:poisonous_potato
+	log2
+		Name: minecraft:log2
+	map
+		Name: minecraft:map
+	lava_bucket
+		Name: minecraft:lava_bucket
+	golden_apple
+		Name: minecraft:golden_apple
+	bread
+		Name: minecraft:bread
+	rotten_flesh
+		Name: minecraft:rotten_flesh
+	emerald_block
+		Name: minecraft:emerald_block
+	end_portal
+		Name: minecraft:end_portal
+	stained_glass
+		Name: minecraft:stained_glass
+	chainmail_leggings
+		Name: minecraft:chainmail_leggings
+	tnt_minecart
+		Name: minecraft:tnt_minecart
+	double_wooden_slab
+		Name: minecraft:double_wooden_slab
+	torch
+		Name: minecraft:torch
+	iron_ore
+		Name: minecraft:iron_ore
+	boat
+		Name: minecraft:boat
+	lead
+		Name: minecraft:lead
+	lapis_block
+		Name: minecraft:lapis_block
+	stone_hoe
+		Name: minecraft:stone_hoe
+	planks
+		Name: minecraft:planks
+	blaze_powder
+		Name: minecraft:blaze_powder
+	iron_shovel
+		Name: minecraft:iron_shovel
+	comparator
+		Name: minecraft:comparator
+	firework_charge
+		Name: minecraft:firework_charge
+	stonebrick
+		Name: minecraft:stonebrick
+	golden_sword
+		Name: minecraft:golden_sword
+	filled_map
+		Name: minecraft:filled_map
+	arrow
+		Name: minecraft:arrow
+	clay_ball
+		Name: minecraft:clay_ball
+	tallgrass
+		Name: minecraft:tallgrass
+	sign
+		Name: minecraft:sign
+	wooden_door
+		Name: minecraft:wooden_door
+	iron_block
+		Name: minecraft:iron_block
+	porkchop
+		Name: minecraft:porkchop
+	brown_mushroom
+		Name: minecraft:brown_mushroom
+	iron_door
+		Name: minecraft:iron_door
+	wooden_axe
+		Name: minecraft:wooden_axe
+	shears
+		Name: minecraft:shears
+	noteblock
+		Name: minecraft:noteblock
+	sapling
+		Name: minecraft:sapling
+	written_book
+		Name: minecraft:written_book
+	chainmail_boots
+		Name: minecraft:chainmail_boots
+	ghast_tear
+		Name: minecraft:ghast_tear
+	vine
+		Name: minecraft:vine
+	glass_pane
+		Name: minecraft:glass_pane
+	enchanted_book
+		Name: minecraft:enchanted_book
+	quartz_stairs
+		Name: minecraft:quartz_stairs
+	redstone_torch
+		Name: minecraft:redstone_torch
+	golden_rail
+		Name: minecraft:golden_rail
+	rail
+		Name: minecraft:rail
+	dirt
+		Name: minecraft:dirt
+	diamond_hoe
+		Name: minecraft:diamond_hoe
+	iron_horse_armor
+		Name: minecraft:iron_horse_armor
+	lever
+		Name: minecraft:lever
+	clock
+		Name: minecraft:clock
+	water
+		Name: minecraft:water
+	item_frame
+		Name: minecraft:item_frame
+	flowing_water
+		Name: minecraft:flowing_water
+	compass
+		Name: minecraft:compass
+	snow
+		Name: minecraft:snow
+	coal_ore
+		Name: minecraft:coal_ore
+	coal
+		Name: minecraft:coal
+	lit_furnace
+		Name: minecraft:lit_furnace
+	leather_helmet
+		Name: minecraft:leather_helmet
+	emerald_ore
+		Name: minecraft:emerald_ore
+	sugar
+		Name: minecraft:sugar
+	record_mall
+		Name: minecraft:record_mall
+	iron_hoe
+		Name: minecraft:iron_hoe
+	chicken
+		Name: minecraft:chicken
+	brick_stairs
+		Name: minecraft:brick_stairs
+	monster_egg
+		Name: minecraft:monster_egg
+	golden_pickaxe
+		Name: minecraft:golden_pickaxe
+	tripwire_hook
+		Name: minecraft:tripwire_hook
+	fence_gate
+		Name: minecraft:fence_gate
+	brewing_stand
+		Name: minecraft:brewing_stand
+	bow
+		Name: minecraft:bow
+	record_blocks
+		Name: minecraft:record_blocks
+	bowl
+		Name: minecraft:bowl
+	paper
+		Name: minecraft:paper
+	cobblestone
+		Name: minecraft:cobblestone
+	redstone_block
+		Name: minecraft:redstone_block
+	iron_pickaxe
+		Name: minecraft:iron_pickaxe
+	netherrack
+		Name: minecraft:netherrack
+	skull
+		Name: minecraft:skull
+	brick
+		Name: minecraft:brick
+	snow_layer
+		Name: minecraft:snow_layer
+	golden_chestplate
+		Name: minecraft:golden_chestplate
+	golden_shovel
+		Name: minecraft:golden_shovel
+	light_weighted_pressure_plate
+		Name: minecraft:light_weighted_pressure_plate
+	fishing_rod
+		Name: minecraft:fishing_rod
+	spruce_stairs
+		Name: minecraft:spruce_stairs
+	activator_rail
+		Name: minecraft:activator_rail
+	gold_ore
+		Name: minecraft:gold_ore
+	record_13
+		Name: minecraft:record_13
+	quartz
+		Name: minecraft:quartz
+	fermented_spider_eye
+		Name: minecraft:fermented_spider_eye
+	hopper_minecart
+		Name: minecraft:hopper_minecart
+	yellow_flower
+		Name: minecraft:yellow_flower
+	diamond
+		Name: minecraft:diamond
+	ladder
+		Name: minecraft:ladder
+	painting
+		Name: minecraft:painting
+	record_11
+		Name: minecraft:record_11
+	red_mushroom
+		Name: minecraft:red_mushroom
+	record_far
+		Name: minecraft:record_far
+	record_stal
+		Name: minecraft:record_stal
+	hopper
+		Name: minecraft:hopper
+	pumpkin
+		Name: minecraft:pumpkin
+	fence
+		Name: minecraft:fence
+	trapped_chest
+		Name: minecraft:trapped_chest
+	carrot
+		Name: minecraft:carrot
+projred
+
+	core
+
+		projectred
+
+			core
+
+				datacard
+					Name: ProjRed|Core:projectred.core.datacard
+				part
+					Name: ProjRed|Core:projectred.core.part
+				drawplate
+					Name: ProjRed|Core:projectred.core.drawplate
+				screwdriver
+					Name: ProjRed|Core:projectred.core.screwdriver
+				wiredebugger
+					Name: ProjRed|Core:projectred.core.wiredebugger
+	exploration
+
+		projectred
+
+			exploration
+
+				stonewalls
+					Name: ProjRed|Exploration:projectred.exploration.stonewalls
+				peridothelmet
+					Name: ProjRed|Exploration:projectred.exploration.peridothelmet
+				sapphireboots
+					Name: ProjRed|Exploration:projectred.exploration.sapphireboots
+				axeperidot
+					Name: ProjRed|Exploration:projectred.exploration.axeperidot
+				peridotboots
+					Name: ProjRed|Exploration:projectred.exploration.peridotboots
+				sapphireleggings
+					Name: ProjRed|Exploration:projectred.exploration.sapphireleggings
+				woolgin
+					Name: ProjRed|Exploration:projectred.exploration.woolgin
+				sicklediamond
+					Name: ProjRed|Exploration:projectred.exploration.sicklediamond
+				rubychestplate
+					Name: ProjRed|Exploration:projectred.exploration.rubychestplate
+				shovelperidot
+					Name: ProjRed|Exploration:projectred.exploration.shovelperidot
+				rubyleggings
+					Name: ProjRed|Exploration:projectred.exploration.rubyleggings
+				sicklewood
+					Name: ProjRed|Exploration:projectred.exploration.sicklewood
+				sickleiron
+					Name: ProjRed|Exploration:projectred.exploration.sickleiron
+				sawsapphire
+					Name: ProjRed|Exploration:projectred.exploration.sawsapphire
+				swordsapphire
+					Name: ProjRed|Exploration:projectred.exploration.swordsapphire
+				sickleperidot
+					Name: ProjRed|Exploration:projectred.exploration.sickleperidot
+				pickaxesapphire
+					Name: ProjRed|Exploration:projectred.exploration.pickaxesapphire
+				athame
+					Name: ProjRed|Exploration:projectred.exploration.athame
+				hoesapphire
+					Name: ProjRed|Exploration:projectred.exploration.hoesapphire
+				peridotleggings
+					Name: ProjRed|Exploration:projectred.exploration.peridotleggings
+				sapphirechestplate
+					Name: ProjRed|Exploration:projectred.exploration.sapphirechestplate
+				barrel
+					Name: ProjRed|Exploration:projectred.exploration.barrel
+				axesapphire
+					Name: ProjRed|Exploration:projectred.exploration.axesapphire
+				ore
+					Name: ProjRed|Exploration:projectred.exploration.ore
+				sapphirehelmet
+					Name: ProjRed|Exploration:projectred.exploration.sapphirehelmet
+				shovelsapphire
+					Name: ProjRed|Exploration:projectred.exploration.shovelsapphire
+				pickaxeperidot
+					Name: ProjRed|Exploration:projectred.exploration.pickaxeperidot
+				swordruby
+					Name: ProjRed|Exploration:projectred.exploration.swordruby
+				lilyseed
+					Name: ProjRed|Exploration:projectred.exploration.lilyseed
+				pickaxeruby
+					Name: ProjRed|Exploration:projectred.exploration.pickaxeruby
+				axeruby
+					Name: ProjRed|Exploration:projectred.exploration.axeruby
+				swordperidot
+					Name: ProjRed|Exploration:projectred.exploration.swordperidot
+				hoeruby
+					Name: ProjRed|Exploration:projectred.exploration.hoeruby
+				stone
+					Name: ProjRed|Exploration:projectred.exploration.stone
+				shovelruby
+					Name: ProjRed|Exploration:projectred.exploration.shovelruby
+				peridotchestplate
+					Name: ProjRed|Exploration:projectred.exploration.peridotchestplate
+				sawperidot
+					Name: ProjRed|Exploration:projectred.exploration.sawperidot
+				sawruby
+					Name: ProjRed|Exploration:projectred.exploration.sawruby
+				backpack
+					Name: ProjRed|Exploration:projectred.exploration.backpack
+				sicklesapphire
+					Name: ProjRed|Exploration:projectred.exploration.sicklesapphire
+				lily
+					Name: ProjRed|Exploration:projectred.exploration.lily
+				sawgold
+					Name: ProjRed|Exploration:projectred.exploration.sawgold
+				sicklestone
+					Name: ProjRed|Exploration:projectred.exploration.sicklestone
+				hoeperidot
+					Name: ProjRed|Exploration:projectred.exploration.hoeperidot
+				rubyhelmet
+					Name: ProjRed|Exploration:projectred.exploration.rubyhelmet
+				sicklegold
+					Name: ProjRed|Exploration:projectred.exploration.sicklegold
+				rubyboots
+					Name: ProjRed|Exploration:projectred.exploration.rubyboots
+				sickleruby
+					Name: ProjRed|Exploration:projectred.exploration.sickleruby
+	transmission
+
+		projectred
+
+			transmission
+
+				wire
+					Name: ProjRed|Transmission:projectred.transmission.wire
+				framewire
+					Name: ProjRed|Transmission:projectred.transmission.framewire
+	illumination
+
+		projectred
+
+			illumination
+
+				fixture
+					Name: ProjRed|Illumination:projectred.illumination.fixture
+
+					inv
+						Name: ProjRed|Illumination:projectred.illumination.fixture.inv
+				cagelamp
+					Name: ProjRed|Illumination:projectred.illumination.cagelamp
+
+					inv
+						Name: ProjRed|Illumination:projectred.illumination.cagelamp.inv
+				flightbutton
+					Name: ProjRed|Illumination:projectred.illumination.flightbutton
+				lamp
+					Name: ProjRed|Illumination:projectred.illumination.lamp
+				lightbutton
+					Name: ProjRed|Illumination:projectred.illumination.lightbutton
+				lantern
+					Name: ProjRed|Illumination:projectred.illumination.lantern
+
+					inv
+						Name: ProjRed|Illumination:projectred.illumination.lantern.inv
+				cagelamp2
+					Name: ProjRed|Illumination:projectred.illumination.cagelamp2
+
+					inv
+						Name: ProjRed|Illumination:projectred.illumination.cagelamp2.inv
+				airouslight
+					Name: ProjRed|Illumination:projectred.illumination.airousLight
+	fabrication
+
+		projectred
+
+			fabrication
+
+				icchip
+					Name: ProjRed|Fabrication:projectred.fabrication.icchip
+				icblueprint
+					Name: ProjRed|Fabrication:projectred.fabrication.icblueprint
+			integration
+
+				icblock
+					Name: ProjRed|Fabrication:projectred.integration.icblock
+	integration
+
+		projectred
+
+			integration
+
+				gate
+					Name: ProjRed|Integration:projectred.integration.gate
+	expansion
+
+		projectred
+
+			expansion
+
+				infused_ender_pearl
+					Name: ProjRed|Expansion:projectred.expansion.infused_ender_pearl
+				electric_screwdriver
+					Name: ProjRed|Expansion:projectred.expansion.electric_screwdriver
+				jetpack
+					Name: ProjRed|Expansion:projectred.expansion.jetpack
+				solar_panel
+					Name: ProjRed|Expansion:projectred.expansion.solar_panel
+				emptybattery
+					Name: ProjRed|Expansion:projectred.expansion.emptybattery
+				machine2
+					Name: ProjRed|Expansion:projectred.expansion.machine2
+				battery
+					Name: ProjRed|Expansion:projectred.expansion.battery
+				machine1
+					Name: ProjRed|Expansion:projectred.expansion.machine1
+				plan
+					Name: ProjRed|Expansion:projectred.expansion.plan
+	transportation
+
+		projectred
+
+			transportation
+
+				routerutil
+					Name: ProjRed|Transportation:projectred.transportation.routerutil
+				pipe
+					Name: ProjRed|Transportation:projectred.transportation.pipe
+				routingchip
+					Name: ProjRed|Transportation:projectred.transportation.routingchip
+forgemicroblock
+
+	sawiron
+		Name: ForgeMicroblock:sawIron
+	sawstone
+		Name: ForgeMicroblock:sawStone
+	stonerod
+		Name: ForgeMicroblock:stoneRod
+	sawdiamond
+		Name: ForgeMicroblock:sawDiamond
+	microblock
+		Name: ForgeMicroblock:microblock
+extrautilities
+
+	conveyor
+		Name: ExtraUtilities:conveyor
+	trashcan
+		Name: ExtraUtilities:trashcan
+	budoff
+		Name: ExtraUtilities:budoff
+	color_blockredstone
+		Name: ExtraUtilities:color_blockRedstone
+	chestfull
+		Name: ExtraUtilities:chestFull
+	glove
+		Name: ExtraUtilities:glove
+	block_bedrockium
+		Name: ExtraUtilities:block_bedrockium
+	drum
+		Name: ExtraUtilities:drum
+	bedrockiumingot
+		Name: ExtraUtilities:bedrockiumIngot
+	color_hellsand
+		Name: ExtraUtilities:color_hellsand
+	shears
+		Name: ExtraUtilities:shears
+	scanner
+		Name: ExtraUtilities:scanner
+	divisionsigil
+		Name: ExtraUtilities:divisionSigil
+	golden_lasso
+		Name: ExtraUtilities:golden_lasso
+	trading_post
+		Name: ExtraUtilities:trading_post
+	spike_base_diamond
+		Name: ExtraUtilities:spike_base_diamond
+	endercollector
+		Name: ExtraUtilities:enderCollector
+	angelblock
+		Name: ExtraUtilities:angelBlock
+	color_redstonelight
+		Name: ExtraUtilities:color_redstoneLight
+	enderquarryupgrade
+		Name: ExtraUtilities:enderQuarryUpgrade
+	colorwoodplanks
+		Name: ExtraUtilities:colorWoodPlanks
+	defoliageaxe
+		Name: ExtraUtilities:defoliageAxe
+	spike_base
+		Name: ExtraUtilities:spike_base
+	spike_base_wood
+		Name: ExtraUtilities:spike_base_wood
+	creativebuilderswand
+		Name: ExtraUtilities:creativebuilderswand
+	color_blocklapis
+		Name: ExtraUtilities:color_blockLapis
+	filing
+		Name: ExtraUtilities:filing
+	colorstonebrick
+		Name: ExtraUtilities:colorStoneBrick
+	color_stonebrick
+		Name: ExtraUtilities:color_stonebrick
+	color_quartzblock
+		Name: ExtraUtilities:color_quartzBlock
+	plant
+
+		ender_lilly
+			Name: ExtraUtilities:plant/ender_lilly
+	watering_can
+		Name: ExtraUtilities:watering_can
+	color_blockcoal
+		Name: ExtraUtilities:color_blockCoal
+	sonar_goggles
+		Name: ExtraUtilities:sonar_goggles
+	microblocks
+		Name: ExtraUtilities:microblocks
+	erosionshovel
+		Name: ExtraUtilities:erosionShovel
+	endconstructor
+		Name: ExtraUtilities:endConstructor
+	color_lightgem
+		Name: ExtraUtilities:color_lightgem
+	sound_muffler
+		Name: ExtraUtilities:sound_muffler
+	nodeupgrade
+		Name: ExtraUtilities:nodeUpgrade
+	chestmini
+		Name: ExtraUtilities:chestMini
+	lawsword
+		Name: ExtraUtilities:lawSword
+	curtains
+		Name: ExtraUtilities:curtains
+	magnumtorch
+		Name: ExtraUtilities:magnumTorch
+	generator
+		Name: ExtraUtilities:generator
+
+		8
+			Name: ExtraUtilities:generator.8
+		64
+			Name: ExtraUtilities:generator.64
+	greenscreen
+		Name: ExtraUtilities:greenscreen
+	cursedearthside
+		Name: ExtraUtilities:cursedearthside
+	timer
+		Name: ExtraUtilities:timer
+	extractor_base
+		Name: ExtraUtilities:extractor_base
+	builderswand
+		Name: ExtraUtilities:builderswand
+	datablock
+		Name: ExtraUtilities:datablock
+	destructionpickaxe
+		Name: ExtraUtilities:destructionpickaxe
+	spike_base_gold
+		Name: ExtraUtilities:spike_base_gold
+	pipes
+		Name: ExtraUtilities:pipes
+
+		1
+			Name: ExtraUtilities:pipes.1
+	angelring
+		Name: ExtraUtilities:angelRing
+	ethericsword
+		Name: ExtraUtilities:ethericsword
+	cobblestone_compressed
+		Name: ExtraUtilities:cobblestone_compressed
+	unstableingot
+		Name: ExtraUtilities:unstableingot
+	color_brick
+		Name: ExtraUtilities:color_brick
+	peaceful_table_top
+		Name: ExtraUtilities:peaceful_table_top
+	chandelier
+		Name: ExtraUtilities:chandelier
+	mini
+
+		soul
+			Name: ExtraUtilities:mini-soul
+	extractor_base_remote
+		Name: ExtraUtilities:extractor_base_remote
+	golden_bag
+		Name: ExtraUtilities:golden_bag
+	endmarker
+		Name: ExtraUtilities:endMarker
+	purelove
+		Name: ExtraUtilities:pureLove
+	color_stone
+		Name: ExtraUtilities:color_stone
+	dark_portal
+		Name: ExtraUtilities:dark_portal
+	heatingelement
+		Name: ExtraUtilities:heatingElement
+	color_obsidian
+		Name: ExtraUtilities:color_obsidian
+	enderquarry
+		Name: ExtraUtilities:enderQuarry
+	decorativeblock2
+		Name: ExtraUtilities:decorativeBlock2
+	decorativeblock1
+		Name: ExtraUtilities:decorativeBlock1
+	paintbrush
+		Name: ExtraUtilities:paintbrush
+	enderthermicpump
+		Name: ExtraUtilities:enderThermicPump
+	etherealglass
+		Name: ExtraUtilities:etherealglass
+	temporalhoe
+		Name: ExtraUtilities:temporalHoe
+mcframes
+
+	mcframes
+
+		motor
+			Name: MCFrames:mcframes.motor
+		frame
+			Name: MCFrames:mcframes.frame
+forgerelocation
+
+	relocation
+
+		blockmovingrow
+			Name: ForgeRelocation:relocation.blockmovingrow
+openblocks
+
+	paintcan
+		Name: OpenBlocks:paintcan
+	tastyclay
+		Name: OpenBlocks:tastyClay
+	cannon
+		Name: OpenBlocks:cannon
+	village_highlighter
+		Name: OpenBlocks:village_highlighter
+	drawingtable
+		Name: OpenBlocks:drawingtable
+	xpshower
+		Name: OpenBlocks:xpshower
+	heightmap
+		Name: OpenBlocks:heightMap
+	path
+		Name: OpenBlocks:path
+	fan
+		Name: OpenBlocks:fan
+	elevator
+		Name: OpenBlocks:elevator
+	projector
+		Name: OpenBlocks:projector
+	luggage
+		Name: OpenBlocks:luggage
+	paintmixer
+		Name: OpenBlocks:paintmixer
+	pedometer
+		Name: OpenBlocks:pedometer
+	stencil
+		Name: OpenBlocks:stencil
+	squeegee
+		Name: OpenBlocks:squeegee
+	ropeladder
+		Name: OpenBlocks:ropeladder
+	guide
+		Name: OpenBlocks:guide
+	sky
+		Name: OpenBlocks:sky
+	canvas
+		Name: OpenBlocks:canvas
+	scaffolding
+		Name: OpenBlocks:scaffolding
+	bigbutton
+		Name: OpenBlocks:bigbutton
+	spongeonastick
+		Name: OpenBlocks:spongeonastick
+	cartographer
+		Name: OpenBlocks:cartographer
+	autoenchantmenttable
+		Name: OpenBlocks:autoenchantmenttable
+	wrench
+		Name: OpenBlocks:wrench
+	infobook
+		Name: OpenBlocks:infoBook
+	goldeneye
+		Name: OpenBlocks:goldenEye
+	cursor
+		Name: OpenBlocks:cursor
+	technicolorglasses
+		Name: OpenBlocks:technicolorGlasses
+	xpdrain
+		Name: OpenBlocks:xpdrain
+	sponge
+		Name: OpenBlocks:sponge
+	filledbucket
+		Name: OpenBlocks:filledbucket
+	flag
+		Name: OpenBlocks:flag
+	slimalyzer
+		Name: OpenBlocks:slimalyzer
+	xpbottler
+		Name: OpenBlocks:xpbottler
+	epiceraser
+		Name: OpenBlocks:epicEraser
+	sleepingbag
+		Name: OpenBlocks:sleepingBag
+	hangglider
+		Name: OpenBlocks:hangglider
+	elevator_rotating
+		Name: OpenBlocks:elevator_rotating
+	heal
+		Name: OpenBlocks:heal
+	blockplacer
+		Name: OpenBlocks:blockPlacer
+	vacuumhopper
+		Name: OpenBlocks:vacuumhopper
+	sonicglasses
+		Name: OpenBlocks:sonicglasses
+	trophy
+		Name: OpenBlocks:trophy
+	tank
+		Name: OpenBlocks:tank
+	sprinkler
+		Name: OpenBlocks:sprinkler
+	cranecontrol
+		Name: OpenBlocks:craneControl
+	builder_guide
+		Name: OpenBlocks:builder_guide
+	pencilglasses
+		Name: OpenBlocks:pencilGlasses
+	autoanvil
+		Name: OpenBlocks:autoanvil
+	grave
+		Name: OpenBlocks:grave
+	itemdropper
+		Name: OpenBlocks:itemDropper
+	devnull
+		Name: OpenBlocks:devnull
+	crayonglasses
+		Name: OpenBlocks:crayonGlasses
+	beartrap
+		Name: OpenBlocks:beartrap
+	canvasglass
+		Name: OpenBlocks:canvasglass
+	generic
+		Name: OpenBlocks:generic
+	blockbreaker
+		Name: OpenBlocks:blockbreaker
+	target
+		Name: OpenBlocks:target
+	goldenegg
+		Name: OpenBlocks:goldenegg
+	ladder
+		Name: OpenBlocks:ladder
+	genericunstackable
+		Name: OpenBlocks:genericUnstackable
+	donationstation
+		Name: OpenBlocks:donationStation
+	imaginary
+		Name: OpenBlocks:imaginary
+	emptymap
+		Name: OpenBlocks:emptyMap
+	paintbrush
+		Name: OpenBlocks:paintBrush
+	seriousglasses
+		Name: OpenBlocks:seriousGlasses
+	cranebackpack
+		Name: OpenBlocks:craneBackpack
+appliedenergistics2
+
+	item
+
+		toolnetherquartzpickaxe
+			Name: appliedenergistics2:item.ToolNetherQuartzPickaxe
+		toolnetherquartzcuttingknife
+			Name: appliedenergistics2:item.ToolNetherQuartzCuttingKnife
+		toolmemorycard
+			Name: appliedenergistics2:item.ToolMemoryCard
+		toolnetherquartzaxe
+			Name: appliedenergistics2:item.ToolNetherQuartzAxe
+		toolentropymanipulator
+			Name: appliedenergistics2:item.ToolEntropyManipulator
+		itemmultimaterial
+			Name: appliedenergistics2:item.ItemMultiMaterial
+		itemcrystalseed
+			Name: appliedenergistics2:item.ItemCrystalSeed
+		toolbiometriccard
+			Name: appliedenergistics2:item.ToolBiometricCard
+		toolwirelessterminal
+			Name: appliedenergistics2:item.ToolWirelessTerminal
+		toolnetworktool
+			Name: appliedenergistics2:item.ToolNetworkTool
+		toolportablecell
+			Name: appliedenergistics2:item.ToolPortableCell
+		itempaintball
+			Name: appliedenergistics2:item.ItemPaintBall
+		toolnetherquartzsword
+			Name: appliedenergistics2:item.ToolNetherQuartzSword
+		toolcertusquartzspade
+			Name: appliedenergistics2:item.ToolCertusQuartzSpade
+		toolmasscannon
+			Name: appliedenergistics2:item.ToolMassCannon
+		toolcertusquartzwrench
+			Name: appliedenergistics2:item.ToolCertusQuartzWrench
+		toolcertusquartzpickaxe
+			Name: appliedenergistics2:item.ToolCertusQuartzPickaxe
+		toolcolorapplicator
+			Name: appliedenergistics2:item.ToolColorApplicator
+		itemmultipart
+			Name: appliedenergistics2:item.ItemMultiPart
+		toolcertusquartzaxe
+			Name: appliedenergistics2:item.ToolCertusQuartzAxe
+		toolcertusquartzsword
+			Name: appliedenergistics2:item.ToolCertusQuartzSword
+		toolnetherquartzwrench
+			Name: appliedenergistics2:item.ToolNetherQuartzWrench
+		itemviewcell
+			Name: appliedenergistics2:item.ItemViewCell
+		toolcertusquartzhoe
+			Name: appliedenergistics2:item.ToolCertusQuartzHoe
+		toolcertusquartzcuttingknife
+			Name: appliedenergistics2:item.ToolCertusQuartzCuttingKnife
+		itembasicstoragecell
+
+			16k
+				Name: appliedenergistics2:item.ItemBasicStorageCell.16k
+			4k
+				Name: appliedenergistics2:item.ItemBasicStorageCell.4k
+			1k
+				Name: appliedenergistics2:item.ItemBasicStorageCell.1k
+			64k
+				Name: appliedenergistics2:item.ItemBasicStorageCell.64k
+		toolnetherquartzhoe
+			Name: appliedenergistics2:item.ToolNetherQuartzHoe
+		itemspatialstoragecell
+
+			2cubed
+				Name: appliedenergistics2:item.ItemSpatialStorageCell.2Cubed
+			128cubed
+				Name: appliedenergistics2:item.ItemSpatialStorageCell.128Cubed
+			16cubed
+				Name: appliedenergistics2:item.ItemSpatialStorageCell.16Cubed
+		itemencodedpattern
+			Name: appliedenergistics2:item.ItemEncodedPattern
+		toolchargedstaff
+			Name: appliedenergistics2:item.ToolChargedStaff
+		toolnetherquartzspade
+			Name: appliedenergistics2:item.ToolNetherQuartzSpade
+		itemcreativestoragecell
+			Name: appliedenergistics2:item.ItemCreativeStorageCell
+		itemfacade
+			Name: appliedenergistics2:item.ItemFacade
+	tile
+
+		blockquartzglass
+			Name: appliedenergistics2:tile.BlockQuartzGlass
+		blockinterface
+			Name: appliedenergistics2:tile.BlockInterface
+		skystonestairblock
+			Name: appliedenergistics2:tile.SkyStoneStairBlock
+		blockwireless
+			Name: appliedenergistics2:tile.BlockWireless
+		blockinscriber
+			Name: appliedenergistics2:tile.BlockInscriber
+		blockcondenser
+			Name: appliedenergistics2:tile.BlockCondenser
+		fluixstairblock
+			Name: appliedenergistics2:tile.FluixStairBlock
+		blockquartzchiseled
+			Name: appliedenergistics2:tile.BlockQuartzChiseled
+		blockcraftingmonitor
+			Name: appliedenergistics2:tile.BlockCraftingMonitor
+		blockgrinder
+			Name: appliedenergistics2:tile.BlockGrinder
+		blocksecurity
+			Name: appliedenergistics2:tile.BlockSecurity
+		blockcellworkbench
+			Name: appliedenergistics2:tile.BlockCellWorkbench
+		blockquartz
+			Name: appliedenergistics2:tile.BlockQuartz
+		blockmolecularassembler
+			Name: appliedenergistics2:tile.BlockMolecularAssembler
+		blockmatrixframe
+			Name: appliedenergistics2:tile.BlockMatrixFrame
+		blockspatialpylon
+			Name: appliedenergistics2:tile.BlockSpatialPylon
+		skystoneslabblock
+			Name: appliedenergistics2:tile.SkyStoneSlabBlock
+
+			double
+				Name: appliedenergistics2:tile.SkyStoneSlabBlock.double
+		orequartzcharged
+			Name: appliedenergistics2:tile.OreQuartzCharged
+		blocklightdetector
+			Name: appliedenergistics2:tile.BlockLightDetector
+		skystoneblockslabblock
+			Name: appliedenergistics2:tile.SkyStoneBlockSlabBlock
+
+			double
+				Name: appliedenergistics2:tile.SkyStoneBlockSlabBlock.double
+		fluixslabblock
+			Name: appliedenergistics2:tile.FluixSlabBlock
+
+			double
+				Name: appliedenergistics2:tile.FluixSlabBlock.double
+		skystonesmallbrickslabblock
+			Name: appliedenergistics2:tile.SkyStoneSmallBrickSlabBlock
+
+			double
+				Name: appliedenergistics2:tile.SkyStoneSmallBrickSlabBlock.double
+		blockquartzgrowthaccelerator
+			Name: appliedenergistics2:tile.BlockQuartzGrowthAccelerator
+		blockenergycell
+			Name: appliedenergistics2:tile.BlockEnergyCell
+		quartzslabblock
+			Name: appliedenergistics2:tile.QuartzSlabBlock
+
+			double
+				Name: appliedenergistics2:tile.QuartzSlabBlock.double
+		blocktinytnt
+			Name: appliedenergistics2:tile.BlockTinyTNT
+		blockcraftingunit
+			Name: appliedenergistics2:tile.BlockCraftingUnit
+		blockdenseenergycell
+			Name: appliedenergistics2:tile.BlockDenseEnergyCell
+		blockcablebus
+			Name: appliedenergistics2:tile.BlockCableBus
+		blockquartzpillar
+			Name: appliedenergistics2:tile.BlockQuartzPillar
+		skystonebrickslabblock
+			Name: appliedenergistics2:tile.SkyStoneBrickSlabBlock
+
+			double
+				Name: appliedenergistics2:tile.SkyStoneBrickSlabBlock.double
+		blockcrank
+			Name: appliedenergistics2:tile.BlockCrank
+		orequartz
+			Name: appliedenergistics2:tile.OreQuartz
+		blockskychest
+			Name: appliedenergistics2:tile.BlockSkyChest
+		blockskycompass
+			Name: appliedenergistics2:tile.BlockSkyCompass
+		chiseledquartzstairblock
+			Name: appliedenergistics2:tile.ChiseledQuartzStairBlock
+		blockcontroller
+			Name: appliedenergistics2:tile.BlockController
+		blockquartzlamp
+			Name: appliedenergistics2:tile.BlockQuartzLamp
+		skystonebrickstairblock
+			Name: appliedenergistics2:tile.SkyStoneBrickStairBlock
+		quartzstairblock
+			Name: appliedenergistics2:tile.QuartzStairBlock
+		blockquartztorch
+			Name: appliedenergistics2:tile.BlockQuartzTorch
+		blockskystone
+			Name: appliedenergistics2:tile.BlockSkyStone
+		blockcreativeenergycell
+			Name: appliedenergistics2:tile.BlockCreativeEnergyCell
+		blockpaint
+			Name: appliedenergistics2:tile.BlockPaint
+		blockcharger
+			Name: appliedenergistics2:tile.BlockCharger
+		blockdrive
+			Name: appliedenergistics2:tile.BlockDrive
+		blockspatialioport
+			Name: appliedenergistics2:tile.BlockSpatialIOPort
+		blockchest
+			Name: appliedenergistics2:tile.BlockChest
+		blockioport
+			Name: appliedenergistics2:tile.BlockIOPort
+		blockcraftingstorage
+			Name: appliedenergistics2:tile.BlockCraftingStorage
+		quartzpillarstairblock
+			Name: appliedenergistics2:tile.QuartzPillarStairBlock
+		skystoneblockstairblock
+			Name: appliedenergistics2:tile.SkyStoneBlockStairBlock
+		chiseledquartzslabblock
+			Name: appliedenergistics2:tile.ChiseledQuartzSlabBlock
+
+			double
+				Name: appliedenergistics2:tile.ChiseledQuartzSlabBlock.double
+		skystonesmallbrickstairblock
+			Name: appliedenergistics2:tile.SkyStoneSmallBrickStairBlock
+		blockenergyacceptor
+			Name: appliedenergistics2:tile.BlockEnergyAcceptor
+		quartzpillarslabblock
+			Name: appliedenergistics2:tile.QuartzPillarSlabBlock
+
+			double
+				Name: appliedenergistics2:tile.QuartzPillarSlabBlock.double
+		blockvibrationchamber
+			Name: appliedenergistics2:tile.BlockVibrationChamber
+		blockquantumlinkchamber
+			Name: appliedenergistics2:tile.BlockQuantumLinkChamber
+		blockquantumring
+			Name: appliedenergistics2:tile.BlockQuantumRing
+		blockfluix
+			Name: appliedenergistics2:tile.BlockFluix
+buildcraft
+
+	core
+
+		engineblock
+			Name: BuildCraft|Core:engineBlock
+		diamondgearitem
+			Name: BuildCraft|Core:diamondGearItem
+		goldgearitem
+			Name: BuildCraft|Core:goldGearItem
+		maplocation
+			Name: BuildCraft|Core:mapLocation
+		debugger
+			Name: BuildCraft|Core:debugger
+		wrenchitem
+			Name: BuildCraft|Core:wrenchItem
+		buildtoolblock
+			Name: BuildCraft|Core:buildToolBlock
+		woodengearitem
+			Name: BuildCraft|Core:woodenGearItem
+		irongearitem
+			Name: BuildCraft|Core:ironGearItem
+		list
+			Name: BuildCraft|Core:list
+		markerblock
+			Name: BuildCraft|Core:markerBlock
+		stonegearitem
+			Name: BuildCraft|Core:stoneGearItem
+		paintbrush
+			Name: BuildCraft|Core:paintbrush
+		pathmarkerblock
+			Name: BuildCraft|Core:pathMarkerBlock
+		eternalspring
+			Name: BuildCraft|Core:eternalSpring
+	factory
+
+		floodgateblock
+			Name: BuildCraft|Factory:floodGateBlock
+		pumpblock
+			Name: BuildCraft|Factory:pumpBlock
+		tankblock
+			Name: BuildCraft|Factory:tankBlock
+		plainpipeblock
+			Name: BuildCraft|Factory:plainPipeBlock
+		miningwellblock
+			Name: BuildCraft|Factory:miningWellBlock
+		autoworkbenchblock
+			Name: BuildCraft|Factory:autoWorkbenchBlock
+		blockhopper
+			Name: BuildCraft|Factory:blockHopper
+		refineryblock
+			Name: BuildCraft|Factory:refineryBlock
+	builders
+
+		templateitem
+			Name: BuildCraft|Builders:templateItem
+		architectblock
+			Name: BuildCraft|Builders:architectBlock
+		blueprintitem
+			Name: BuildCraft|Builders:blueprintItem
+		libraryblock
+			Name: BuildCraft|Builders:libraryBlock
+		builderblock
+			Name: BuildCraft|Builders:builderBlock
+		constructionmarkerblock
+			Name: BuildCraft|Builders:constructionMarkerBlock
+		frameblock
+			Name: BuildCraft|Builders:frameBlock
+		fillerblock
+			Name: BuildCraft|Builders:fillerBlock
+		machineblock
+			Name: BuildCraft|Builders:machineBlock
+	silicon
+
+		package
+			Name: BuildCraft|Silicon:package
+		packagerblock
+			Name: BuildCraft|Silicon:packagerBlock
+		laserblock
+			Name: BuildCraft|Silicon:laserBlock
+		lasertableblock
+			Name: BuildCraft|Silicon:laserTableBlock
+		redstonechipset
+			Name: BuildCraft|Silicon:redstoneChipset
+		redstonecrystal
+			Name: BuildCraft|Silicon:redstoneCrystal
+	robotics
+
+		requester
+			Name: BuildCraft|Robotics:requester
+		robot
+			Name: BuildCraft|Robotics:robot
+		robotstation
+			Name: BuildCraft|Robotics:robotStation
+		redstone_board
+			Name: BuildCraft|Robotics:redstone_board
+		zoneplan
+			Name: BuildCraft|Robotics:zonePlan
+	transport
+
+		item
+
+			buildcraftpipe
+
+				pipefluidsemerald
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipefluidsemerald
+				pipefluidsiron
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipefluidsiron
+				pipepowersandstone
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipepowersandstone
+				pipepoweremerald
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipepoweremerald
+				pipefluidsvoid
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipefluidsvoid
+				pipeitemswood
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipeitemswood
+				pipestructurecobblestone
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipestructurecobblestone
+				pipefluidssandstone
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipefluidssandstone
+				pipeitemsstone
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipeitemsstone
+				pipeitemsvoid
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipeitemsvoid
+				pipeitemsstripes
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipeitemsstripes
+				pipepowerquartz
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipepowerquartz
+				pipepowergold
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipepowergold
+				pipeitemssandstone
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipeitemssandstone
+				pipeitemsclay
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipeitemsclay
+				pipeitemscobblestone
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipeitemscobblestone
+				pipeitemsgold
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipeitemsgold
+				pipeitemsquartz
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipeitemsquartz
+				pipeitemsemzuli
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipeitemsemzuli
+				pipefluidsclay
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipefluidsclay
+				pipepowerwood
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipepowerwood
+				pipefluidscobblestone
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipefluidscobblestone
+				pipefluidsdiamond
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipefluidsdiamond
+				pipeitemslapis
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipeitemslapis
+				pipepowerdiamond
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipepowerdiamond
+				pipefluidswood
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipefluidswood
+				pipefluidsgold
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipefluidsgold
+				pipefluidsquartz
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipefluidsquartz
+				pipeitemsdiamond
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipeitemsdiamond
+				pipeitemsdaizuli
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipeitemsdaizuli
+				pipepowerstone
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipepowerstone
+				pipeitemsiron
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipeitemsiron
+				pipeitemsemerald
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipeitemsemerald
+				pipeitemsobsidian
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipeitemsobsidian
+				pipepowercobblestone
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipepowercobblestone
+				pipefluidsstone
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipefluidsstone
+				pipepoweriron
+					Name: BuildCraft|Transport:item.buildcraftPipe.pipepoweriron
+		filteredbufferblock
+			Name: BuildCraft|Transport:filteredBufferBlock
+		pipewire
+			Name: BuildCraft|Transport:pipeWire
+		gatecopier
+			Name: BuildCraft|Transport:gateCopier
+		pipefacade
+			Name: BuildCraft|Transport:pipeFacade
+		pipeplug
+			Name: BuildCraft|Transport:pipePlug
+		pipeblock
+			Name: BuildCraft|Transport:pipeBlock
+		pipegate
+			Name: BuildCraft|Transport:pipeGate
+		pipepoweradapter
+			Name: BuildCraft|Transport:pipePowerAdapter
+		pipewaterproof
+			Name: BuildCraft|Transport:pipeWaterproof
+		pipelens
+			Name: BuildCraft|Transport:pipeLens
+	energy
+
+		blockredplasma
+			Name: BuildCraft|Energy:blockRedPlasma
+		blockoil
+			Name: BuildCraft|Energy:blockOil
+		bucketoil
+			Name: BuildCraft|Energy:bucketOil
+		blockfuel
+			Name: BuildCraft|Energy:blockFuel
+		bucketfuel
+			Name: BuildCraft|Energy:bucketFuel
