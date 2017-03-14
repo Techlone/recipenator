@@ -1,4 +1,4 @@
-package recipenator;
+package recipenator.testenv;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;

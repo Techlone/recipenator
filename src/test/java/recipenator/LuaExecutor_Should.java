@@ -4,6 +4,7 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import recipenator.testenv.TestLuaLibGetter;
 import recipenator.utils.lua.LuaExecutor;
 
 import java.io.ByteArrayOutputStream;

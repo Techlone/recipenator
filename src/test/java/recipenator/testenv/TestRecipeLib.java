@@ -1,4 +1,4 @@
-package recipenator;
+package recipenator.testenv;
 
 import recipenator.lualib.recipe.RecipeLib;
 

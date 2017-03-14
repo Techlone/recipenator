@@ -1,3 +1,8 @@
+static getBuildNumber() {
+    def cal = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+    return 365 * (cal.get(Calendar.YEAR) - 2015) + cal.get(Calendar.DAY_OF_YEAR);
+}
+
 buildscript {
     repositories {
         mavenCentral()
@@ -18,24 +23,23 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'forge'
 
-sourceCompatibility = '1.8'
-targetCompatibility = '1.8'
+sourceCompatibility = javaver
+targetCompatibility = javaver
 
-version = '1.0.0'
-group = 'recipenator'
+def finalversion = rnversion + '.' + getBuildNumber()
 
-configurations {
-    includeJar
-}
+version = rnversion + '.' + getBuildNumber()
+group = rnname
+archivesBaseName = rnname
 
-minecraft {
-    version = '1.7.10-10.13.4.1614-1.7.10'
-}
+configurations { includeJar }
+
+minecraft { version = mcversion + '-' + forgeversion }
 
 repositories {
     maven {
-        name = "chickenbones"
-        url = "http://chickenbones.net/maven/"
+        name = 'chickenbones'
+        url = 'http://chickenbones.net/maven/'
     }
 }
 
@@ -55,16 +59,11 @@ jar {
 }
 
 processResources {
-    // this will ensure that this task is redone when the versions change.
-    inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft.version
-    // replace stuff in mcmod.info, nothing else
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
-        // replace version and mcversion
-        expand 'version': project.version, 'mcversion': project.minecraft.version
+        expand 'rnid': rnname, 'version': finalversion
     }
-    // copy everything else, thats not the mcmod.info
+
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }

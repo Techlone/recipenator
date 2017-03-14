@@ -4,8 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import recipenator.utils.RecipeHelper;
 
-import java.util.Objects;
-
 public class RecipeHelper_Should {
     @Test
     public void Rectangulate() {
