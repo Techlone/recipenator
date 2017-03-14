@@ -15,4 +15,4 @@ Here https://github.com/Techlone/recipenator/releases
 * Run two commands:
   * `gradle setupDevWorkspace`
   * `gradle build`
-* Jar file would be in '.\build\libs' folder
+* Jar file would be in `.\build\libs` folder
