@@ -8,7 +8,7 @@ Here https://github.com/Techlone/recipenator/releases
 *WIP*
 
 # How to build
-* Install gradle
+* Install gradle and JDK 8
 * Clone this repo
 * Open cmd or bash or something what you like
 * Go to cloned folder
