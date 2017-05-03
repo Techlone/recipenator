@@ -2,13 +2,13 @@ package recipenator.testenv;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
-import recipenator.api.IRecipeComponent;
+import recipenator.api.component.IRecipeComponent;
 import recipenator.lualib.recipe.RecipeManager;
 
 public class TestRecipeManager extends RecipeManager {
     @Override
     public void addRecipe(IRecipe recipe) {
-        AddedRecipes.add(recipe);
+        addedRecipes.add(recipe);
     }
 
     @Override

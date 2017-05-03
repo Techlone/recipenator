@@ -4,7 +4,10 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import recipenator.api.extention.ClassExtender;
+import recipenator.testenv.TestItemExt;
 import recipenator.testenv.TestLuaLibGetter;
+import recipenator.utils.ScriptHelper;
 import recipenator.utils.lua.LuaExecutor;
 
 import java.io.ByteArrayOutputStream;
@@ -21,8 +24,14 @@ public class LuaExecutor_Should {
     private PrintStream errDefault;
     private LuaExecutor executor;
 
+    public void execute(String name) {
+        executor.executeByName(name + ScriptHelper.SCRIPT_EXT);
+    }
+
     @Before
     public void before() {
+        ClassExtender.extendBy(TestItemExt.class);
+
         outDefault = System.out;
         errDefault = System.err;
         System.setOut(new PrintStream(outContent));
@@ -41,18 +50,28 @@ public class LuaExecutor_Should {
 
     @Test
     public void ExecuteScript_GlobalTest() {
-        executor.executeFile("global_test");
+        execute("global_test");
         String output = outContent.toString();
         Assert.assertEquals("123", output.substring(output.length() - 3));
     }
 
     @Test
     public void ExecuteScript_Items() {
-        executor.executeFile("items");
+        execute("items");
     }
 
     @Test
     public void ExecuteScript_Recipe() {
-        executor.executeFile("recipe");
+        execute("recipe");
+    }
+
+    @Test
+    public void ExecuteScript_ItemExt() {
+        execute("itemext");
+    }
+
+    @Test
+    public void ExecuteScript_FieldWrap() {
+        execute("field_wrap");
     }
 }

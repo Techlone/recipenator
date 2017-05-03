@@ -1,7 +1,7 @@
 package recipenator.testenv;
 
-import recipenator.api.ILuaLibGetter;
-import recipenator.lualib.BaseLuaLib;
+import recipenator.api.lua.ILuaLibGetter;
+import recipenator.api.lua.BaseLuaLib;
 import recipenator.lualib.item.ItemLib;
 import recipenator.lualib.oredict.OreDictLib;
 import recipenator.utils.NamesTree;
@@ -15,7 +15,7 @@ import java.util.Set;
 
 public class TestLuaLibGetter implements ILuaLibGetter {
     @Override
-    public Set<BaseLuaLib> getLibs() {
+    public Set<BaseLuaLib> get() {
         Set<BaseLuaLib> libs = new HashSet<>();
         Collection<String> names;
         try {
@@ -23,7 +23,7 @@ public class TestLuaLibGetter implements ILuaLibGetter {
         } catch (IOException ignored) {
             throw new RuntimeException("All is gone!");
         }
-        //noinspection unchecked
+
         libs.add(new ItemLib(NamesTree.getTreeRoot(names)));
         libs.add(new OreDictLib());
         libs.add(new TestRecipeLib());

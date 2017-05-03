@@ -1,15 +1,15 @@
 package recipenator.lualib.recipe;
 
-import recipenator.lualib.BaseLuaLib;
+import recipenator.api.lua.BaseLuaLib;
 
-public class RecipeLib extends BaseLuaLib {
+public class RecipeLib extends BaseLuaLib<RecipeManager> {
     @Override
-    protected String getLibName() {
+    public String getName() {
         return "recipe";
     }
 
     @Override
-    protected Object getLib() {
-        return new RecipeManager();
+    public RecipeManager get() {
+        return RecipeManager.instance;
     }
 }

@@ -3,7 +3,7 @@ package recipenator.utils;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import recipenator.api.IRecipeComponent;
+import recipenator.api.component.IRecipeComponent;
 
 import java.util.Arrays;
 import java.util.HashSet;

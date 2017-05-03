@@ -4,28 +4,35 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
-import recipenator.api.IRecipeComponent;
-import recipenator.api.annotation.Metamethod;
+import recipenator.api.component.IRecipeComponent;
+import recipenator.api.metamethod.Metamethod;
+import recipenator.lualib.item.ItemComponent;
 import recipenator.lualib.item.NullComponent;
+import recipenator.utils.NamesTree;
 import recipenator.utils.RecipeHelper;
-import recipenator.utils.lua.MetamethodType;
+import recipenator.api.metamethod.MetamethodType;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class RecipeManager {
-    public final static List<IRecipe> AddedRecipes = new ArrayList<>();
+    public final static RecipeManager instance = new RecipeManager();
 
-    public static void removeAll() {
-        List recipeList = CraftingManager.getInstance().getRecipeList();
-        for (IRecipe recipe : AddedRecipes)
-            recipeList.remove(recipe);
-        AddedRecipes.clear();
+    public final ItemComponent item = new ItemComponent(new NamesTree.NameNode(), 1, 0, null);
+
+    protected final List<IRecipe> addedRecipes = Collections.synchronizedList(new ArrayList<>());
+
+    @SuppressWarnings("unchecked")
+    public void removeAll() {
+        List<IRecipe> recipeList = CraftingManager.getInstance().getRecipeList();
+        recipeList.removeAll(addedRecipes);
+        addedRecipes.clear();
     }
 
     public void addRecipe(IRecipe recipe) {
         GameRegistry.addRecipe(recipe);
-        AddedRecipes.add(recipe);
+        addedRecipes.add(recipe);
     }
 
     public void addShaped(IRecipeComponent<ItemStack> result, IRecipeComponent[][] input) {

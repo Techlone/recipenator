@@ -1,8 +1,8 @@
 package recipenator.lualib.oredict;
 
 import net.minecraftforge.oredict.OreDictionary;
-import recipenator.api.annotation.Metamethod;
-import recipenator.utils.lua.MetamethodType;
+import recipenator.api.metamethod.Metamethod;
+import recipenator.api.metamethod.MetamethodType;
 
 public class OreDictIndexator {
     @Metamethod(MetamethodType.INDEX)

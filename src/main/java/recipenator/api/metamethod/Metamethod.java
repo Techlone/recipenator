@@ -1,6 +1,4 @@
-package recipenator.api.annotation;
-
-import recipenator.utils.lua.MetamethodType;
+package recipenator.api.metamethod;
 
 import java.lang.annotation.*;
 

@@ -1,4 +1,4 @@
-package recipenator.utils.lua;
+package recipenator.api.metamethod;
 
 import org.luaj.vm2.LuaValue;
 

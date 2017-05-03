@@ -1,15 +1,15 @@
 package recipenator.lualib.oredict;
 
-import recipenator.lualib.BaseLuaLib;
+import recipenator.api.lua.BaseLuaLib;
 
 public class OreDictLib extends BaseLuaLib {
     @Override
-    protected String getLibName() {
+    public String getName() {
         return "ore";
     }
 
     @Override
-    protected Object getLib() {
+    public Object get() {
         return new OreDictIndexator();
     }
 

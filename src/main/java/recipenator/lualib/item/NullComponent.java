@@ -1,18 +1,24 @@
 package recipenator.lualib.item;
 
 import net.minecraft.item.ItemStack;
-import recipenator.api.IRecipeComponent;
+import net.minecraft.nbt.NBTTagCompound;
+import recipenator.api.component.IRecipeComponent;
 
 public class NullComponent implements IRecipeComponent {
     public static final IRecipeComponent NULL = new NullComponent();
 
     @Override
-    public Object mulCount(int multiplier) {
+    public Object multiply(int multiplier) {
         return this;
     }
 
     @Override
-    public Object withMeta(int meta) {
+    public Object setMeta(int meta) {
+        return this;
+    }
+
+    @Override
+    public Object setTag(NBTTagCompound tag) {
         return this;
     }
 

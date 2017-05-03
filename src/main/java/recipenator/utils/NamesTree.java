@@ -1,14 +1,16 @@
 package recipenator.utils;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class NamesTree {
-    public static NameNode getTreeRoot(Collection<String> names) {
+    public static NameNode getTreeRoot(Collection names) {
         NameNode nn = new NameNode();
 
-        Map<String, List<String>> nameToNodes = names.stream()
-                .collect(Collectors.toMap(s -> s, NamesTree::getNameNodes));
+        Map<String, List<String>> nameToNodes = new HashMap<>();
+        for (Object o : names) {
+            String s = String.valueOf(o);
+            nameToNodes.put(s, NamesTree.getNameNodes(s));
+        }
 
         for (String name : nameToNodes.keySet()) {
             NameNode current = nn;

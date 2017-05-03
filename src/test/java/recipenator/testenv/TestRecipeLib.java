@@ -4,7 +4,7 @@ import recipenator.lualib.recipe.RecipeLib;
 
 public class TestRecipeLib extends RecipeLib {
     @Override
-    protected Object getLib() {
+    public TestRecipeManager get() {
         return new TestRecipeManager();
     }
 }
