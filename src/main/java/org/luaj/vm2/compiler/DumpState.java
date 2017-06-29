@@ -35,7 +35,7 @@ import org.luaj.vm2.LuaValue;
 
 /** Class to dump a {@link Prototype} into an output stream, as part of compiling.
  * <p>
- * Generally, this class is not used directly, but rather indirectly via a command 
+ * Generally, this class is not used directly, but rather indirectly via a commands
  * line interface tool such as {@link luac}.
  * <p>
  * A lua binary file is created via {@link DumpState#dump}:

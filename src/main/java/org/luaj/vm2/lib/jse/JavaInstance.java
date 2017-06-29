@@ -21,12 +21,8 @@
 ******************************************************************************/
 package org.luaj.vm2.lib.jse;
 
-import java.lang.reflect.Field;
-
-import org.luaj.vm2.LuaError;
 import org.luaj.vm2.LuaUserdata;
 import org.luaj.vm2.LuaValue;
-import sun.text.normalizer.UBiDiProps;
 
 /**
  * LuaValue that represents a Java instance.
@@ -44,10 +40,15 @@ class JavaInstance extends LuaUserdata {
 
 	JavaInstance(Object instance) {
 		super(instance);
-		javaClass = JavaClass.forClass(m_instance.getClass());
+	}
+	//do not call in constructor! it will cause StackOverflow
+	private void setJavaClass() {
+		if (javaClass == null) javaClass = JavaClass.forClass(m_instance.getClass());
 	}
 
 	public LuaValue get(LuaValue key) {
+		setJavaClass();
+
 		LuaValue fieldValue = javaClass.getFieldValue(this, key);
 		if (!isNullOrNil(fieldValue)) return fieldValue;
 
@@ -61,9 +62,9 @@ class JavaInstance extends LuaUserdata {
 	}
 
 	public void set(LuaValue key, LuaValue value) {
+		setJavaClass();
 		boolean successSetting = javaClass.setFieldValue(this, key, value);
-		if (!successSetting)
-			super.set(key, value);
+		if (!successSetting) super.set(key, value);
 	}
 
 	public static boolean isNullOrNil(LuaValue luaValue) {

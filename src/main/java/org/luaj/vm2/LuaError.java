@@ -22,9 +22,6 @@
 package org.luaj.vm2;
 
 
-import java.util.function.Function;
-import java.util.function.Supplier;
-
 /**
  * RuntimeException that is thrown and caught in response to a lua error. 
  * <p>

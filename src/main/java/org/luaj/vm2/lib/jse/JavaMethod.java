@@ -25,6 +25,7 @@ import org.luaj.vm2.LuaError;
 import org.luaj.vm2.LuaFunction;
 import org.luaj.vm2.LuaValue;
 import org.luaj.vm2.Varargs;
+import recipenator.utils.CommonHelper;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -49,7 +50,7 @@ class JavaMethod extends JavaMember {
 	static final Map<Method, JavaMethod> methods = new ConcurrentHashMap<>();
 
 	static JavaMethod forMethod(Method m) {
-        return methods.computeIfAbsent(m, JavaMethod::new);
+		return methods.computeIfAbsent(m, Modifier.isStatic(m.getModifiers()) ? JavaMethodStatic::new : JavaMethod::new);
 	}
 	
 	static LuaFunction forMethods(List<JavaMethod> methods) {
@@ -57,27 +58,25 @@ class JavaMethod extends JavaMember {
 	}
 	
 	private final Method method;
-	private final boolean isStatic;
 	
-	private JavaMethod(Method m) {
-		super(m.getParameterTypes(), m.isVarArgs());
-		this.method = m;
-		try {
+	JavaMethod(Method method) {
+		super(method.getParameterTypes(), method.isVarArgs());
+		CommonHelper.ignoreErrors(m -> {
 			if (!m.isAccessible())
 				m.setAccessible(true);
-		} catch (SecurityException ignored) {
-		}
-		this.isStatic = Modifier.isStatic(m.getModifiers());
+		}, method);
+        this.method = method;
 	}
 
 	public Varargs invoke(Varargs args) {
-		if (!isStatic && args.narg() == 0) error("method cannot be called without instance");
-		return isStatic ? invokeMethod(null, args) : invokeMethod(args.checkuserdata(1), args.subargs(2));
+		if (args.narg() == 0) error("method cannot be called without instance");
+		return invokeMethod(args.checkuserdata(1), args.subargs(2));
 	}
 	
 	LuaValue invokeMethod(Object instance, Varargs args) {
 		try {
-			return CoerceJavaToLua.coerce(method.invoke(instance, convertArgs(args)));
+            Object result = method.invoke(instance, convertArgs(args));
+            return CoerceJavaToLua.coerce(result);
 		} catch (InvocationTargetException e) {
 			throw new LuaError(e.getTargetException());
 		} catch (Exception e) {

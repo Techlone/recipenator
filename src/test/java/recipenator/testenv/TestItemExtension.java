@@ -1,24 +1,23 @@
 package recipenator.testenv;
 
-import recipenator.api.extention.ClassExtension;
-import recipenator.api.extention.FieldGetter;
-import recipenator.api.extention.FieldSetter;
-import recipenator.lualib.item.ItemComponent;
+import recipenator.api.extention.LuaField;
+import recipenator.api.extention.LuaName;
+import recipenator.api.metamethod.Metamethod;
+import recipenator.api.metamethod.MetamethodType;
+import recipenator.components.ItemComponent;
 
-@ClassExtension(ItemComponent.class)
+import java.util.Random;
+
 public class TestItemExtension {
-    @FieldGetter
-    public static String getNode(ItemComponent itemComponent) {
-        String s = itemComponent.toString();
-        return s.substring(0, s.indexOf(System.lineSeparator()));
+    @LuaName("hash")
+    public static LuaField<ItemComponent, Integer> myField = new LuaField<>(Object::hashCode);
+
+    public static void printRnd(ItemComponent item) {
+        System.out.println(new Random(item.hashCode()).nextInt());
     }
 
-    @FieldSetter
-    public static void setMyMeta(ItemComponent itemComponent, int meta) {
-        itemComponent.setMeta(meta < 32000 ? meta + 32000 : meta);
-    }
-
-    public static int someMethod(ItemComponent itemComponent) {
-        return itemComponent.hashCode();
+    @Metamethod(MetamethodType.NEWINDEX)
+    public static void newIndex(ItemComponent item, Object key, Object value) {
+        System.out.println("New key!");
     }
 }

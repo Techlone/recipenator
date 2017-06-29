@@ -1,24 +1,21 @@
 package recipenator;
 
-import net.minecraft.item.Item;
 import recipenator.api.lua.ILuaLibGetter;
-import recipenator.api.lua.BaseLuaLib;
-import recipenator.lualib.item.ItemLib;
-import recipenator.lualib.oredict.OreDictLib;
-import recipenator.lualib.recipe.RecipeLib;
-import recipenator.utils.NamesTree;
+import recipenator.api.lua.LuaLibBase;
+import recipenator.lualibs.ItemsLib;
+import recipenator.lualibs.OreDictLib;
+import recipenator.lualibs.RecipesLib;
 
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
 public class DefaultLuaLibGetter implements ILuaLibGetter {
     @Override
-    public Set<BaseLuaLib> get() {
-        Set<BaseLuaLib> libs = new HashSet<>();
-        libs.add(new ItemLib());
+    public Set<LuaLibBase> get() {
+        Set<LuaLibBase> libs = new HashSet<>();
+        libs.add(new ItemsLib());
         libs.add(new OreDictLib());
-        libs.add(new RecipeLib());
+        libs.add(new RecipesLib());
         return libs;
     }
 }

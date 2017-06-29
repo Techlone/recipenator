@@ -4,11 +4,10 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import recipenator.api.extention.ClassExtender;
-import recipenator.testenv.TestItemExt;
+import org.luaj.vm2.lib.jse.JavaClassExtender;
+import recipenator.testenv.TestItemExtension;
 import recipenator.testenv.TestLuaLibGetter;
 import recipenator.utils.ScriptHelper;
-import recipenator.utils.lua.LuaExecutor;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -30,7 +29,7 @@ public class LuaExecutor_Should {
 
     @Before
     public void before() {
-        ClassExtender.extendBy(TestItemExt.class);
+        JavaClassExtender.extendBy(TestItemExtension.class);
 
         outDefault = System.out;
         errDefault = System.err;

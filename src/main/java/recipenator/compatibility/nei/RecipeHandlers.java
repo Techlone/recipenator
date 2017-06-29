@@ -6,8 +6,8 @@ import codechicken.nei.recipe.ShapedRecipeHandler;
 import codechicken.nei.recipe.ShapelessRecipeHandler;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
-import recipenator.lualib.recipe.RecipeShaped;
-import recipenator.lualib.recipe.RecipeShapeless;
+import recipenator.recipes.RecipeShaped;
+import recipenator.recipes.RecipeShapeless;
 import recipenator.utils.RecipeHelper;
 
 import java.util.List;

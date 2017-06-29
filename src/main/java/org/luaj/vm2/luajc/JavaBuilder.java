@@ -307,7 +307,7 @@ public class JavaBuilder {
 			main.dispose();
 		}
 		
-		// add main function so class is invokable from the java command line 
+		// add main function so class is invokable from the java commands line
 		if (genmain) {
 			MethodGen mg = new MethodGen( Constants.ACC_PUBLIC | Constants.ACC_STATIC, // access flags
 					Type.VOID, // return type

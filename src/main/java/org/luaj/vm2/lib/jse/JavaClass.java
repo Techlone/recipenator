@@ -21,20 +21,21 @@
 ******************************************************************************/
 package org.luaj.vm2.lib.jse;
 
+import org.luaj.vm2.LuaError;
+import org.luaj.vm2.LuaUserdata;
+import org.luaj.vm2.LuaValue;
+import recipenator.api.extention.LuaField;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Collectors;
-
-import org.luaj.vm2.LuaError;
-import org.luaj.vm2.LuaUserdata;
-import org.luaj.vm2.LuaValue;
-import recipenator.api.extention.FieldGetter;
-import recipenator.api.extention.FieldSetter;
 
 /**
  * LuaValue that represents a Java class.
@@ -48,43 +49,52 @@ import recipenator.api.extention.FieldSetter;
  * @see CoerceLuaToJava
  */
 class JavaClass extends JavaInstance implements CoerceJavaToLua.Coercion {
-	static final Map<Class, JavaClass> classes = new ConcurrentHashMap<>();
-	static final LuaValue NEW = valueOf("new");
+    static final Map<Class, JavaClass> classes = new ConcurrentHashMap<>();
+    static final LuaValue NEW = valueOf("new");
 
     Map<LuaValue, Field> fields;
     Map<LuaValue, LuaValue> methods;
-    Map<LuaValue, LuaValue> setters;
-    Map<LuaValue, LuaValue> getters;
-	Map<LuaValue, LuaValue> innerClasses;
-	
-	static JavaClass forClass(Class c) {
-		return classes.computeIfAbsent(c, JavaClass::new);
-	}
-	
-	JavaClass(Class c) {
-		super(c);
-		javaClass = this;
+    Map<LuaValue, LuaValue> innerClasses;
+    Map<LuaValue, LuaField<?, ?>> extendedFields;
+
+    static JavaClass forClass(Class c) {
+        return classes.computeIfAbsent(c, JavaClass::new);
+    }
+
+    JavaClass(Class c) {
+        super(c);
+        javaClass = this;
         fields = getFields(c);
         methods = getMethods(c);
-        setters = getSetters(c);
-        getters = getGetters(c);
         innerClasses = getInnerClasses(c);
-	}
+        extendedFields = new HashMap<>();
+    }
 
     public LuaValue getConstructor() {
         return getMethod(NEW);
     }
 
     public LuaValue coerce(Object javaValue) {
-		return this;
-	}
-		
-	Field getField(LuaValue key) {
-        return fields.get(key);
+        return this;
+    }
+
+    LuaValue getFieldValue(LuaUserdata luaObject, LuaValue fieldName) {
+        Field field = fields.get(fieldName);
+        if (field != null) try {
+            return CoerceJavaToLua.coerce(field.get(luaObject.m_instance));
+        } catch (IllegalAccessException e) {
+            throw new LuaError(e);
+        }
+
+        LuaField luaField = extendedFields.get(fieldName);
+        if (luaField != null && luaField.getter != null)
+            return CoerceJavaToLua.coerce(luaField.getter.apply(luaObject.m_instance));
+
+        return LuaValue.NIL;
     }
 
     boolean setFieldValue(LuaUserdata luaObject, LuaValue fieldName, LuaValue value) {
-        Field field = getField(fieldName);
+        Field field = fields.get(fieldName);
         if (field != null) try {
             field.set(luaObject.m_instance, CoerceLuaToJava.coerce(value, field.getType()));
             return true;
@@ -92,29 +102,13 @@ class JavaClass extends JavaInstance implements CoerceJavaToLua.Coercion {
             throw new LuaError(e);
         }
 
-        LuaValue setter = getSetter(fieldName);
-        if (setter == null) return false;
-        setter.call(luaObject, value);
-        return true;
-    }
-
-    LuaValue getSetter(LuaValue key) {
-        return setters.get(key);
-    }
-
-    LuaValue getFieldValue(LuaUserdata luaObject, LuaValue fieldName) {
-        Field field = getField(fieldName);
-        if (field != null) try {
-            return CoerceJavaToLua.coerce(field.get(luaObject.m_instance));
-        } catch (IllegalAccessException e) {
-            throw new LuaError(e);
+        LuaField luaField = extendedFields.get(fieldName);
+        if (luaField != null && luaField.getter != null) {
+            luaField.setter.accept(luaObject.m_instance, CoerceLuaToJava.coerce(value, Object.class));
+            return true;
         }
-        LuaValue getter = getGetter(fieldName);
-        return LuaValue.NIL;
-    }
 
-    LuaValue getGetter(LuaValue fieldName) {
-        return getters.get(fieldName);
+        return false;
     }
 
     LuaValue getMethod(LuaValue key) {
@@ -123,13 +117,6 @@ class JavaClass extends JavaInstance implements CoerceJavaToLua.Coercion {
 
     LuaValue getInnerClass(LuaValue key) {
         return innerClasses.get(key);
-    }
-
-    public void extendBy(Class extension) {
-        methods.putAll(getMethods(extension));
-        setters.putAll(getSetters(extension));
-        getters.putAll(getGetters(extension));
-        innerClasses.putAll(getInnerClasses(extension));
     }
 
     private static Map<LuaValue, Field> getFields(Class clazz) {
@@ -170,45 +157,6 @@ class JavaClass extends JavaInstance implements CoerceJavaToLua.Coercion {
         return methods;
     }
 
-    private static Map<LuaValue, LuaValue> getSetters(Class clazz) {
-        Map<LuaValue, LuaValue> setters = new HashMap<>();
-        FieldSetter setter;
-        for (Method method : clazz.getMethods()) {
-            setter = method.getAnnotation(FieldSetter.class);
-            if (setter == null) continue;
-            if (!isCorrectSetter(method)) {
-                System.err.println("Method marked like setter but doesn't match rules: must be static and takes two args or not static and takes one arg.");
-                System.err.println("Method name: " + clazz.getName() + "::" + method.getName());
-                continue;
-            }
-            String name = setter.value().equals("") ? getFieldName(method.getName()) : setter.value();
-            setters.put(LuaValue.valueOf(name), JavaMethod.forMethod(method));
-        }
-        return setters;
-    }
-
-    private static boolean isCorrectSetter(Method method) {
-        int neededParamCount = Modifier.isStatic(method.getModifiers()) ? 2 : 1;
-        return method.getParameterCount() == neededParamCount;
-    }
-
-    private Map<LuaValue,LuaValue> getGetters(Class clazz) {
-        Map<LuaValue, LuaValue> getters = new HashMap<>();
-        for (Method method : Arrays.stream(clazz.getMethods())
-                .filter(m -> m.isAnnotationPresent(FieldGetter.class) && isCorrectGetter(m))
-                .collect(Collectors.toList())) {
-            FieldGetter getter = method.getAnnotation(FieldGetter.class);
-            String name = getter.value().equals("") ? getFieldName(method.getName()) : getter.value();
-            getters.put(LuaValue.valueOf(name), JavaMethod.forMethod(method));
-        }
-        return getters;
-    }
-
-    private static boolean isCorrectGetter(Method method) {
-        int neededParamCount = Modifier.isStatic(method.getModifiers()) ? 1 : 0;
-        return Modifier.isPublic(method.getModifiers()) && method.getParameterCount() == neededParamCount;
-    }
-
     private static Map<LuaValue, LuaValue> getInnerClasses(Class clazz) {
         Map<LuaValue, LuaValue> innerClasses = new HashMap<>();
         for (Class innerClass : clazz.getClasses()) {
@@ -217,9 +165,5 @@ class JavaClass extends JavaInstance implements CoerceJavaToLua.Coercion {
             innerClasses.put(LuaValue.valueOf(stub), forClass(innerClass));
         }
         return innerClasses;
-    }
-
-    public static String getFieldName(String name) {
-        return (name.startsWith("get") || name.startsWith("set") ? name.substring(3) : name).replaceAll("([a-z0-9])([A-Z]+)", "$1_$2").toLowerCase();
     }
 }

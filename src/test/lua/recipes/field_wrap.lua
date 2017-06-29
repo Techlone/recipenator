@@ -1,2 +1,2 @@
-print(recipe.item:asd())
-print(item.minecraft)
+print(recipes.item:asd())
+print(items.minecraft)

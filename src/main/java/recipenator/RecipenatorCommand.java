@@ -3,9 +3,9 @@ package recipenator;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.ChatComponentText;
-import recipenator.api.BaseRnSubCommand;
-import recipenator.command.HelpCommand;
-import recipenator.command.ReloadCommand;
+import recipenator.api.SubCommandBase;
+import recipenator.commands.HelpCommand;
+import recipenator.commands.ReloadCommand;
 
 import java.util.*;
 import java.util.function.Consumer;
@@ -17,7 +17,7 @@ public class RecipenatorCommand extends CommandBase {
     public static final String COMMAND_ALIAS = "rn";
     public static final String DEFAULT_SUBCOMMAND_NAME = "help";
 
-    private static final Map<String, BaseRnSubCommand> commands = new HashMap<>();
+    private static final Map<String, SubCommandBase> commands = new HashMap<>();
 
     static {
         addCommand(new HelpCommand());
@@ -28,15 +28,15 @@ public class RecipenatorCommand extends CommandBase {
         return commands.size();
     }
 
-    public static void addCommand(BaseRnSubCommand command) {
+    public static void addCommand(SubCommandBase command) {
         commands.put(command.getName(), command);
     }
 
-    public static void foreachCommands(Consumer<BaseRnSubCommand> action) {
+    public static void foreachCommands(Consumer<SubCommandBase> action) {
         commands.values().forEach(action);
     }
 
-    public static <T> List<T> mapCommands(Function<BaseRnSubCommand, T> selector) {
+    public static <T> List<T> mapCommands(Function<SubCommandBase, T> selector) {
         return commands.values().stream().map(selector).collect(Collectors.toList());
     }
 
@@ -62,7 +62,7 @@ public class RecipenatorCommand extends CommandBase {
         else if (commands.containsKey(arguments[0]))
             commands.get(arguments[0]).execute(commandSender, Arrays.copyOfRange(arguments, 1, arguments.length));
         else
-            commandSender.addChatMessage(new ChatComponentText("Unknown command: " + arguments[0]));
+            commandSender.addChatMessage(new ChatComponentText("Unknown commands: " + arguments[0]));
 
     }
 

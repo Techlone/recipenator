@@ -32,9 +32,9 @@ public class JseProcess {
 	final Process process;
 	final Thread input,output,error;
 
-	/** Construct a process around a command, with specified streams to redirect input and output to.
+	/** Construct a process around a commands, with specified streams to redirect input and output to.
 	 * 
-	 * @param cmd The command to execute, including arguments, if any
+	 * @param cmd The commands to execute, including arguments, if any
 	 * @param stdin Optional InputStream to read from as process input, or null if input is not needed.
 	 * @param stdout Optional OutputStream to copy process output to, or null if output is ignored.
 	 * @param stderr Optinoal OutputStream to copy process stderr output to, or null if output is ignored.
@@ -45,9 +45,9 @@ public class JseProcess {
 		this(Runtime.getRuntime().exec(cmd), stdin, stdout, stderr);	
 	}
 
-	/** Construct a process around a command, with specified streams to redirect input and output to.
+	/** Construct a process around a commands, with specified streams to redirect input and output to.
 	 * 
-	 * @param cmd The command to execute, including arguments, if any
+	 * @param cmd The commands to execute, including arguments, if any
 	 * @param stdin Optional InputStream to read from as process input, or null if input is not needed.
 	 * @param stdout Optional OutputStream to copy process output to, or null if output is ignored.
 	 * @param stderr Optinoal OutputStream to copy process stderr output to, or null if output is ignored.

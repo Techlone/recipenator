@@ -391,11 +391,11 @@ public class OsLib extends TwoArgFunction {
 	
 	/** 
 	 * This function is equivalent to the C function system. 
-	 * It passes command to be executed by an operating system shell. 
+	 * It passes commands to be executed by an operating system shell.
 	 * It returns a status code, which is system-dependent. 
-	 * If command is absent, then it returns nonzero if a shell 
+	 * If commands is absent, then it returns nonzero if a shell
 	 * is available and zero otherwise.
-	 * @param command command to pass to the system
+	 * @param command commands to pass to the system
 	 */ 
 	protected Varargs execute(String command) {
 		return varargsOf(NIL, valueOf("exit"), ONE);

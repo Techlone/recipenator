@@ -23,7 +23,6 @@ package org.luaj.vm2.lib.jse;
 
 import org.luaj.vm2.Globals;
 import org.luaj.vm2.LoadState;
-import org.luaj.vm2.LuaThread;
 import org.luaj.vm2.LuaValue;
 import org.luaj.vm2.compiler.LuaC;
 import org.luaj.vm2.lib.Bit32Lib;
@@ -123,7 +122,7 @@ public class JsePlatform {
 	}
 
 
-	/** Simple wrapper for invoking a lua function with command line arguments.  
+	/** Simple wrapper for invoking a lua function with commands line arguments.
 	 * The supplied function is first given a new Globals object, 
 	 * then the program is run with arguments.
 	 */

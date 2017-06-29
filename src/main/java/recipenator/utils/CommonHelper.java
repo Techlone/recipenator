@@ -9,6 +9,14 @@ public class CommonHelper {
         ignoreErrors(consumer, arg, false);
     }
 
+    public static <T> T ignoreErrors(Supplier<T> supplier) {
+        return ignoreErrors(supplier, null);
+    }
+
+    public static <T, N> T ignoreErrors(Function<N, T> function, N argument) {
+        return ignoreErrors(function, argument, null);
+    }
+
     public static <T> T ignoreErrors(Supplier<T> supplier, T defaultValue) {
         return ignoreErrors(supplier, defaultValue, false);
     }

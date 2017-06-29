@@ -51,7 +51,7 @@ import java.util.Map;
  * type {@link DefaultLauncher} which creates debug globals, runs the script,
  * and prints the return values. This behavior can be changed by supplying a
  * different implementation class to {@link #NewLauncher(Class)} which must
- * extend {@link Launcher}.
+ * extendBy {@link Launcher}.
  * 
  * @see Launcher
  * @see #NewLauncher()

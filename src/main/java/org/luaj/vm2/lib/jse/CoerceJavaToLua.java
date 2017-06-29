@@ -111,26 +111,35 @@ public class CoerceJavaToLua {
 		}
 	}
 
-	private static final class InstanceCoercion implements Coercion {
+	static final class InstanceCoercion implements Coercion {
 		private final static Map<Class, LuaTable> metatables = new ConcurrentHashMap<>();
 
 		public static LuaTable getMetatable(Class cls) {
-			LuaTable mt = metatables.get(cls);
-			if (mt != null) return mt;
-			Metamethod mma;
-			mt = new LuaTable();
-			for (Method method : cls.getMethods()) {
-				if ((mma = method.getAnnotation(Metamethod.class)) != null) {
-					mt.set(mma.value().name, JavaMethod.forMethod(method));
-				}
-			}
-			metatables.put(cls, mt);
-			return mt;
+			return metatables.computeIfAbsent(cls, InstanceCoercion::createMetatable);
+		}
+
+		public static void extendMetatable(Class cls, Method method) {
+			addMetamethod(getMetatable(cls), method);
+		}
+
+		private static LuaTable createMetatable(Class cls) {
+			LuaTable metatable = new LuaTable();
+			for (Method method : cls.getMethods())
+				addMetamethod(metatable, method);
+			return metatable;
+		}
+
+		private static void addMetamethod(LuaTable metatable, Method method) {
+			Metamethod mma = method.getAnnotation(Metamethod.class);
+			if (mma != null)
+				metatable.set(mma.value().name, JavaMethod.forMethod(method));
 		}
 
 		public LuaValue coerce(Object javaValue) {
 			JavaInstance javaInstance = new JavaInstance(javaValue);
-			javaInstance.setmetatable(getMetatable(javaValue.getClass()));
+			LuaTable metatable = getMetatable(javaValue.getClass());
+			if (metatable.keyCount() > 0)
+				javaInstance.setmetatable(metatable);
 			return javaInstance;
 		}
 	}
@@ -199,7 +208,7 @@ public class CoerceJavaToLua {
 
 	static final Coercion instanceCoercion = new InstanceCoercion();
 	
-	static final Coercion arrayCoercion = new ArrayCoercion();	
+	static final Coercion arrayCoercion = new ArrayCoercion();
 
 	static final Coercion luaCoercion = new LuaCoercion() ;
 }
