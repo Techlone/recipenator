@@ -38,4 +38,9 @@ public class OreComponent extends RecipeComponentBase<List<ItemStack>> {
     protected IRecipeComponent<List<ItemStack>> newInstance(int count, int meta, NBTTagCompound tag) {
         return new OreComponent(id, count, meta, tag);
     }
+
+    @Override
+    public List<ItemStack> getAllItems() {
+        return getRecipeItem();
+    }
 }

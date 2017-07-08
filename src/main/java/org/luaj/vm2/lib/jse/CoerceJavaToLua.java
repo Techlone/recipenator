@@ -22,11 +22,16 @@
 package org.luaj.vm2.lib.jse;
 
 import org.luaj.vm2.*;
+import org.luaj.vm2.ast.Str;
 import recipenator.api.metamethod.Metamethod;
 
 import java.lang.reflect.Method;
+import java.util.Arrays;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Helper class to coerce values from Java to lua within the luajava library. 
@@ -112,28 +117,38 @@ public class CoerceJavaToLua {
 	}
 
 	static final class InstanceCoercion implements Coercion {
+		private final static Set<String> availableMetamethods = Stream.of(
+				LuaValue.INDEX,
+				LuaValue.CALL,
+				LuaValue.MUL
+		).map(LuaString::tojstring).collect(Collectors.toSet());
 		private final static Map<Class, LuaTable> metatables = new ConcurrentHashMap<>();
 
 		public static LuaTable getMetatable(Class cls) {
 			return metatables.computeIfAbsent(cls, InstanceCoercion::createMetatable);
 		}
 
-		public static void extendMetatable(Class cls, Method method) {
-			addMetamethod(getMetatable(cls), method);
-		}
+//		public static void extendMetatable(Class cls, Method method) {
+//			addMetamethod(getMetatable(cls), method);
+//		}
 
 		private static LuaTable createMetatable(Class cls) {
 			LuaTable metatable = new LuaTable();
-			for (Method method : cls.getMethods())
-				addMetamethod(metatable, method);
+			for (Method method : cls.getMethods()) {
+				if (!availableMetamethods.contains(method.getName())) continue;
+				metatable.set(method.getName(), JavaMethod.forMethod(method));
+			}
 			return metatable;
 		}
 
-		private static void addMetamethod(LuaTable metatable, Method method) {
-			Metamethod mma = method.getAnnotation(Metamethod.class);
-			if (mma != null)
-				metatable.set(mma.value().name, JavaMethod.forMethod(method));
-		}
+//		private static void addMetamethod(LuaTable metatable, Method method) {
+//			if (isValidMethamethod(method))
+//				metatable.set(method.getName(), JavaMethod.forMethod(method));
+//		}
+
+//		public static boolean isValidMethamethod(Method method) {
+//			return availableMetamethods.contains(method.getName());
+//		}
 
 		public LuaValue coerce(Object javaValue) {
 			JavaInstance javaInstance = new JavaInstance(javaValue);

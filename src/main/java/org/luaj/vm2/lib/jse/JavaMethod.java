@@ -68,19 +68,19 @@ class JavaMethod extends JavaMember {
         this.method = method;
 	}
 
+	public int score(Varargs args) {
+        return super.score(args.subargs(2));
+    }
+
 	public Varargs invoke(Varargs args) {
 		if (args.narg() == 0) error("method cannot be called without instance");
-		return invokeMethod(args.checkuserdata(1), args.subargs(2));
-	}
-	
-	LuaValue invokeMethod(Object instance, Varargs args) {
-		try {
-            Object result = method.invoke(instance, convertArgs(args));
+        try {
+            Object result = method.invoke(args.checkuserdata(1), convertArgs(args.subargs(2)));
             return CoerceJavaToLua.coerce(result);
-		} catch (InvocationTargetException e) {
-			throw new LuaError(e.getTargetException());
-		} catch (Exception e) {
-			return error("coercion error " + e);
-		}
+        } catch (InvocationTargetException e) {
+            throw new LuaError(e.getTargetException());
+        } catch (Exception e) {
+            return error("coercion error " + e);
+        }
 	}
 }

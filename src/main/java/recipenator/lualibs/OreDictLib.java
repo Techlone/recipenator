@@ -1,16 +1,16 @@
 package recipenator.lualibs;
 
 import recipenator.api.lua.LuaLibBase;
-import recipenator.utils.OreDictIndexator;
+import recipenator.utils.OreDictIndexer;
 
-public class OreDictLib extends LuaLibBase<OreDictIndexator> {
+public class OreDictLib extends LuaLibBase<OreDictIndexer> {
     @Override
     public String getName() {
-        return "ore";
+        return "ores";
     }
 
     @Override
-    public OreDictIndexator get() {
-        return new OreDictIndexator();
+    public OreDictIndexer get() {
+        return new OreDictIndexer();
     }
 }

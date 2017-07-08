@@ -1,17 +1,11 @@
 package org.luaj.vm2.lib.jse;
 
 import org.luaj.vm2.LuaString;
-import org.luaj.vm2.LuaTable;
-import org.luaj.vm2.LuaValue;
 import recipenator.api.extention.LuaField;
 import recipenator.api.extention.LuaName;
-import recipenator.api.metamethod.Metamethod;
 import recipenator.utils.CommonHelper;
 
 import java.lang.reflect.*;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.function.BiConsumer;
 
 public class JavaClassExtender {
     public static void extendBy(Class<?> extClass) {
@@ -31,11 +25,11 @@ public class JavaClassExtender {
         for (Method method : extClass.getDeclaredMethods()) {
             if (!isPublicStatic(method) || method.getParameterCount() == 0) continue;
             Class<?> baseClass = method.getParameterTypes()[0];
-            if (method.isAnnotationPresent(Metamethod.class)) {
-                CoerceJavaToLua.InstanceCoercion.extendMetatable(baseClass, method);
-            } else {
-                JavaClass.forClass(baseClass).methods.put(getLuaName(method), JavaMethod.forMethod(method));
-            }
+//            if (method.isAnnotationPresent(Metamethod.class)) {
+//                CoerceJavaToLua.InstanceCoercion.extendMetatable(baseClass, method);
+//            } else {
+            JavaClass.forClass(baseClass).methods.put(getLuaName(method), JavaMethod.forMethod(method));
+//            }
         }
     }
 

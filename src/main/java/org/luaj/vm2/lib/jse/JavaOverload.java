@@ -3,6 +3,7 @@ package org.luaj.vm2.lib.jse;
 import org.luaj.vm2.LuaFunction;
 import org.luaj.vm2.LuaValue;
 import org.luaj.vm2.Varargs;
+import org.luaj.vm2.lib.VarArgFunction;
 
 import java.util.List;
 
@@ -15,7 +16,7 @@ import java.util.List;
  * It is returned by calls to calls to {@link JavaInstance#get(LuaValue key)}
  * when an overloaded method is named.
  */
-class JavaOverload<T extends JavaMember> extends LuaFunction {
+class JavaOverload<T extends JavaMember> extends VarArgFunction {
     private final List<T> methods;
 
     JavaOverload(List<T> methods) {
@@ -26,7 +27,7 @@ class JavaOverload<T extends JavaMember> extends LuaFunction {
     public Varargs invoke(Varargs args) {
         JavaMember best = null;
         int score = CoerceLuaToJava.SCORE_UNCOERCIBLE;
-        for (JavaMember method : methods) {
+        for (T method : methods) {
             int s = method.score(args);
             if (s >= score) continue;
             score = s;
@@ -34,7 +35,7 @@ class JavaOverload<T extends JavaMember> extends LuaFunction {
             if (score == 0) break;
         }
 
-        if (best == null) error("no coercible public method");
-        return best.invoke(args);
+        if (best == null) LuaValue.error("no coercible public method");
+        return best.invoke(args).arg1();
     }
 }

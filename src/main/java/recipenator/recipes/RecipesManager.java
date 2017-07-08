@@ -4,14 +4,13 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import recipenator.api.component.IRecipeComponent;
-import recipenator.api.metamethod.Metamethod;
-import recipenator.api.metamethod.MetamethodType;
+import recipenator.api.lua.Metatable;
 import recipenator.components.NullComponent;
 import recipenator.utils.RecipeHelper;
 
 import java.util.Arrays;
 
-public class RecipesManager {
+public class RecipesManager extends Metatable {
     public void addRecipe(IRecipe recipe) {
         GameRegistry.addRecipe(recipe);
     }
@@ -27,8 +26,7 @@ public class RecipesManager {
         addRecipe(new RecipeShapeless(inputs, result));
     }
 
-    @Metamethod(MetamethodType.INDEX)
-    public Object index(String id) {
+    public Object index(Object id) {
         return null; //TODO mod integration
     }
 }

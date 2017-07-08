@@ -8,6 +8,9 @@ import recipenator.api.component.IRecipeComponent;
 import recipenator.utils.NamesTree;
 import recipenator.utils.RecipeHelper;
 
+import java.util.Collections;
+import java.util.List;
+
 public class ItemComponent extends RecipeComponentBase<ItemStack> {
     private final NamesTree.NameNode node;
 
@@ -57,6 +60,11 @@ public class ItemComponent extends RecipeComponentBase<ItemStack> {
     @Override
     public boolean equals(ItemStack inputItem) {
         return RecipeHelper.isEquals(this.getRecipeItem(), inputItem);
+    }
+
+    @Override
+    public List<ItemStack> getAllItems() {
+        return Collections.singletonList(getRecipeItem());
     }
 
     @Override

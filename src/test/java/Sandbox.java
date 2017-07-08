@@ -1,5 +1,6 @@
 import org.junit.Assert;
 import org.junit.Test;
+import org.luaj.vm2.LuaValue;
 import recipenator.api.extention.LuaField;
 import recipenator.components.ItemComponent;
 

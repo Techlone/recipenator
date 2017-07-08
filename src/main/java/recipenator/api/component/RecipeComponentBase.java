@@ -19,7 +19,7 @@ public abstract class RecipeComponentBase<T> implements IRecipeComponent<T> {
     }
 
     @Metamethod(MetamethodType.INDEX)
-    public Object index(Object id) {
+    public final Object index(Object id) {
         return id instanceof Integer ? setMeta((int) id) : index(String.valueOf(id));
     }
 
@@ -29,17 +29,17 @@ public abstract class RecipeComponentBase<T> implements IRecipeComponent<T> {
 
     @Override
     @Metamethod(MetamethodType.MUL)
-    public Object multiply(int multiplier) {
+    public IRecipeComponent<T> multiply(int multiplier) {
         return multiplier == 1 ? this : newInstance(count * multiplier, meta, tag);
     }
 
     @Override
-    public Object setMeta(int meta) {
+    public IRecipeComponent<T> setMeta(int meta) {
         return this.meta == meta ? this : newInstance(count, meta < anyMeta ? meta : anyMeta, tag);
     }
 
     @Override
-    public Object setTag(NBTTagCompound tag) {
+    public IRecipeComponent<T> setTag(NBTTagCompound tag) {
         return this.tag.equals(tag) ? this : newInstance(count, meta, tag);
     }
 
