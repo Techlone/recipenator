@@ -12,6 +12,11 @@ import java.util.Collections;
 import java.util.List;
 
 public class ItemComponent extends RecipeComponentBase<ItemStack> {
+    public static ItemComponent fromItemStack(ItemStack itemStack) {
+        NamesTree.NameNode nameNode = new NamesTree.NameNode(itemStack.getUnlocalizedName());
+        return new ItemComponent(nameNode, itemStack.stackSize, itemStack.getItemDamage(), itemStack.getTagCompound());
+    }
+
     private final NamesTree.NameNode node;
 
     public ItemComponent(NamesTree.NameNode node) {
@@ -43,7 +48,7 @@ public class ItemComponent extends RecipeComponentBase<ItemStack> {
 
         if (id.charAt(0) == '_') //mymod.item._100 -> mymod.item.100
             id = id.substring(1);
-        return changeNode(node.index(id));
+        return changeNode(node.next(id));
     }
 
     private ItemComponent changeNode(NamesTree.NameNode node) {
@@ -65,6 +70,10 @@ public class ItemComponent extends RecipeComponentBase<ItemStack> {
     @Override
     public List<ItemStack> getAllItems() {
         return Collections.singletonList(getRecipeItem());
+    }
+
+    public String getName() {
+        return node.getName();
     }
 
     @Override

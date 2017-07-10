@@ -22,6 +22,10 @@
 package org.luaj.vm2;
 
 
+import net.minecraftforge.oredict.OreDictionary;
+import org.luaj.vm2.lib.jse.CoerceJavaToLua;
+import recipenator.components.OreComponent;
+
 public class LuaUserdata extends LuaValue {
 	
 	public Object m_instance;
@@ -122,5 +126,17 @@ public class LuaUserdata extends LuaValue {
 	// __eq metatag processing
 	public boolean eqmt( LuaValue val ) {
 		return m_metatable!=null && val.isuserdata()? LuaValue.eqmtcall(this, m_metatable, val, val.getmetatable()): false; 
+	}
+
+	@Override
+	public LuaTable checktable() {
+		if (m_instance instanceof OreComponent)
+			return toOreTable((OreComponent) m_instance);
+		return super.checktable();
+	}
+
+	private LuaTable toOreTable(OreComponent oreComponent) {
+		LuaValue[] luaComponents = oreComponent.getComponents().stream().map(CoerceJavaToLua::coerce).toArray(LuaValue[]::new);
+		return new LuaTable(LuaValue.varargsOf(luaComponents));
 	}
 }

@@ -2,8 +2,6 @@ package recipenator.api.component;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.oredict.OreDictionary;
-import recipenator.api.metamethod.Metamethod;
-import recipenator.api.metamethod.MetamethodType;
 
 public abstract class RecipeComponentBase<T> implements IRecipeComponent<T> {
     public static int anyMeta = OreDictionary.WILDCARD_VALUE;
@@ -18,27 +16,36 @@ public abstract class RecipeComponentBase<T> implements IRecipeComponent<T> {
         this.tag = tag == null ? null : (NBTTagCompound) tag.copy();
     }
 
-    @Metamethod(MetamethodType.INDEX)
-    public final Object index(Object id) {
-        return id instanceof Integer ? setMeta((int) id) : index(String.valueOf(id));
+    public final Object __index(Object id) {
+        if (id instanceof Integer) return setMeta((int) id);
+        if (id instanceof String) return index((String) id);
+        return index(id);
+    }
+
+    public Object index(Object id) {
+        return null;
     }
 
     public Object index(String id) {
         return id.equals("tag") ? tag : id.equals("any") ? setMeta(anyMeta) : null;
     }
 
-    @Override
-    @Metamethod(MetamethodType.MUL)
-    public IRecipeComponent<T> multiply(int multiplier) {
+    public final Object __mul(Object operand) {
+        return operand instanceof Integer ? increaseCount((int) operand) : mul(operand);
+    }
+
+    private Object mul(Object operand) {
+        return null;
+    }
+
+    public IRecipeComponent<T> increaseCount(int multiplier) {
         return multiplier == 1 ? this : newInstance(count * multiplier, meta, tag);
     }
 
-    @Override
     public IRecipeComponent<T> setMeta(int meta) {
         return this.meta == meta ? this : newInstance(count, meta < anyMeta ? meta : anyMeta, tag);
     }
 
-    @Override
     public IRecipeComponent<T> setTag(NBTTagCompound tag) {
         return this.tag.equals(tag) ? this : newInstance(count, meta, tag);
     }

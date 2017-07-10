@@ -22,11 +22,8 @@
 package org.luaj.vm2.lib.jse;
 
 import org.luaj.vm2.*;
-import org.luaj.vm2.ast.Str;
-import recipenator.api.metamethod.Metamethod;
 
 import java.lang.reflect.Method;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -119,6 +116,7 @@ public class CoerceJavaToLua {
 	static final class InstanceCoercion implements Coercion {
 		private final static Set<String> availableMetamethods = Stream.of(
 				LuaValue.INDEX,
+				LuaValue.NEWINDEX,
 				LuaValue.CALL,
 				LuaValue.MUL
 		).map(LuaString::tojstring).collect(Collectors.toSet());

@@ -1,5 +1,5 @@
-for ore in ores.ingotCopper do
-    print(ore)
+for _,item in pairs(ores.ingotCopper) do
+    print(item)
 end
 
 

@@ -3,11 +3,12 @@ package recipenator.components;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.oredict.OreDictionary;
-import recipenator.api.component.RecipeComponentBase;
 import recipenator.api.component.IRecipeComponent;
+import recipenator.api.component.RecipeComponentBase;
 import recipenator.utils.RecipeHelper;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class OreComponent extends RecipeComponentBase<List<ItemStack>> {
     private final String id;
@@ -19,6 +20,10 @@ public class OreComponent extends RecipeComponentBase<List<ItemStack>> {
     public OreComponent(String id, int count, int meta, NBTTagCompound tag) {
         super(count, meta, tag);
         this.id = id;
+    }
+
+    public List<ItemComponent> getComponents() {
+        return getRecipeItem().stream().map(ItemComponent::fromItemStack).collect(Collectors.toList());
     }
 
     @Override

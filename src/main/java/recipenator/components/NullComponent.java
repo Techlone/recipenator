@@ -4,6 +4,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import recipenator.api.component.IRecipeComponent;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class NullComponent implements IRecipeComponent<ItemStack> {
     public static final IRecipeComponent NULL = new NullComponent();
 
@@ -15,6 +18,11 @@ public class NullComponent implements IRecipeComponent<ItemStack> {
     @Override
     public ItemStack getRecipeItem() {
         return null;
+    }
+
+    @Override
+    public List<ItemStack> getAllItems() {
+        return new ArrayList<>();
     }
 
     @Override

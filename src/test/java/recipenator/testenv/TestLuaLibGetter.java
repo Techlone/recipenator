@@ -1,9 +1,10 @@
 package recipenator.testenv;
 
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import recipenator.api.lua.ILuaLibGetter;
 import recipenator.api.lua.LuaLibBase;
-import recipenator.api.metamethod.Metamethod;
-import recipenator.api.metamethod.MetamethodType;
+import recipenator.components.ItemComponent;
 import recipenator.components.OreComponent;
 import recipenator.lualibs.FurnaceLib;
 import recipenator.lualibs.ItemsLib;
@@ -14,9 +15,7 @@ import recipenator.utils.OreDictIndexer;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class TestLuaLibGetter implements ILuaLibGetter {
     @Override
@@ -42,14 +41,18 @@ public class TestLuaLibGetter implements ILuaLibGetter {
 
         class TestOreDictIndexer extends OreDictIndexer {
             @Override
-            @Metamethod(MetamethodType.INDEX)
-            public Object index(String id) {
-                return new OreComponent(id);
-            }
+            public OreComponent get(String id) {
+                return new OreComponent(id) {
 
-            @Metamethod(MetamethodType.CALL)
-            public Object call(Object id) {
-                return null;
+                    @Override
+                    public List<ItemComponent> getComponents() {
+                        return new ArrayList<ItemComponent>() {{
+                            add(new ItemComponent(new NamesTree.NameNode("minecraft:flint")));
+                            add(new ItemComponent(new NamesTree.NameNode("minecraft:pumpkin_seeds")));
+                            add(new ItemComponent(new NamesTree.NameNode("minecraft:diamond_ore")));
+                        }};
+                    }
+                };
             }
         }
     }

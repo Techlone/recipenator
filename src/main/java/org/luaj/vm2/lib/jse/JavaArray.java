@@ -82,5 +82,11 @@ class JavaArray extends LuaUserdata {
 		}
 		else
 			super.set(key, value);
-	} 	
+	}
+
+	@Override
+	public LuaValue arg(int index) {
+		Object[] arr = (Object[]) this.m_instance;
+		return CoerceJavaToLua.coerce(arr[index-1]);
+	}
 }

@@ -14,8 +14,12 @@ public class NamesTree {
 
         for (String name : nameToNodes.keySet()) {
             NameNode current = nn;
-            for (String id : nameToNodes.get(name))
-                current = current.next(id);
+            for (String id : nameToNodes.get(name)) {
+                NameNode next = current.next(id);
+                if (next == null)
+                    current.children.put(id, next = new NameNode());
+                current = next;
+            }
             current.name = name;
         }
 
@@ -48,17 +52,17 @@ public class NamesTree {
 
     public static class NameNode {
         private final Map<String, NameNode> children = new HashMap<>();
-        private String name = null;
+        private String name;
 
-        private NameNode next(String id) {
-            NameNode next = index(id);
-            if (next == null) {
-                children.put(id, next = new NameNode());
-            }
-            return next;
+        public NameNode() {
+            this(null);
         }
 
-        public NameNode index(String id) {
+        public NameNode(String name) {
+            this.name = name;
+        }
+
+        public NameNode next(String id) {
             return children.get(id);
         }
 

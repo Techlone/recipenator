@@ -4,13 +4,12 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import recipenator.api.component.IRecipeComponent;
-import recipenator.api.lua.Metatable;
 import recipenator.components.NullComponent;
 import recipenator.utils.RecipeHelper;
 
 import java.util.Arrays;
 
-public class RecipesManager extends Metatable {
+public class RecipesManager {
     public void addRecipe(IRecipe recipe) {
         GameRegistry.addRecipe(recipe);
     }
