@@ -12,7 +12,7 @@ public class ScriptHelper {
         return new File(SCRIPT_FOLDER_NAME);
     }
 
-    public static List<String> getScriptsNames(File directory) {
+    public static List<String> getScriptNames(File directory) {
         if (directory == null) directory = getDefaultDirectory();
         List<String> result = new ArrayList<>();
         String[] list = directory.list();

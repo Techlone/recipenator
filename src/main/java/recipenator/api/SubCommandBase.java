@@ -7,15 +7,15 @@ import recipenator.RecipenatorCommand;
 import java.util.List;
 
 public abstract class SubCommandBase {
-    // 'commands' length
+    // 'command' length
     private static final int TILE_LENGTH = 7;
 
     private String name;
     private String translatingKey;
 
     protected SubCommandBase() {
-        String className = this.getClass().getName();
-        name = className.substring(0, className.length() - TILE_LENGTH);
+        String className = this.getClass().getSimpleName();
+        name = className.substring(0, className.length() - TILE_LENGTH).toLowerCase();
         translatingKey = "commands." + RecipenatorCommand.COMMAND_NAME + "." + name + ".usage";
     }
 

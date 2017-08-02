@@ -23,6 +23,6 @@ public class ReloadCommand extends SubCommandBase {
 
     @Override
     public List<String> getAutocomplete() {
-        return ScriptHelper.getScriptsNames(null);
+        return RecipenatorMod.getLuaExecutor().getScriptNames();
     }
 }

@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class OreComponent extends RecipeComponentBase<List<ItemStack>> {
-    private final String id;
+    protected final String id;
 
     public OreComponent(String id) {
         this(id, 1, 0, null);
@@ -20,6 +20,12 @@ public class OreComponent extends RecipeComponentBase<List<ItemStack>> {
     public OreComponent(String id, int count, int meta, NBTTagCompound tag) {
         super(count, meta, tag);
         this.id = id;
+    }
+
+    public void add(ItemComponent... items) {
+        for (ItemComponent item : items) {
+            OreDictionary.registerOre(id, item.getRecipeItem());
+        }
     }
 
     public List<ItemComponent> getComponents() {

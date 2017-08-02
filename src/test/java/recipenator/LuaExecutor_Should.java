@@ -83,4 +83,9 @@ public class LuaExecutor_Should {
     public void ExecuteScript_Ore() {
         execute("ore");
     }
+
+    @Test
+    public void ExecuteScript_Tag() {
+        execute("tag");
+    }
 }

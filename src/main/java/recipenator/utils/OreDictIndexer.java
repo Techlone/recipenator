@@ -2,6 +2,7 @@ package recipenator.utils;
 
 import net.minecraftforge.oredict.OreDictionary;
 import recipenator.components.OreComponent;
+import recipenator.components.OrePatternComponent;
 
 public class OreDictIndexer {
     public final Object __index(Object id) {
@@ -13,8 +14,8 @@ public class OreDictIndexer {
     }
 
     public OreComponent get(String id) {
-        if (id.contains("*"))
-            throw new RuntimeException("Not supperted");
+        if (id.contains("*") || id.contains("|"))
+            return new OrePatternComponent(id);
         if (OreDictionary.doesOreNameExist(id))
             return new OreComponent(id);
         return null;
