@@ -7,6 +7,8 @@ import recipenator.utils.CommonHelper;
 
 import java.lang.reflect.*;
 
+import static org.luaj.vm2.lib.jse.JavaClass.getLuaName;
+
 public class JavaClassExtender {
     public static void extendBy(Class<?> extClass) {
         extendFields(extClass);
@@ -39,14 +41,5 @@ public class JavaClassExtender {
 
     private static boolean isPublicStatic(Member member) {
         return Modifier.isPublic(member.getModifiers()) && Modifier.isStatic(member.getModifiers());
-    }
-
-    public static <T extends AnnotatedElement & Member> LuaString getLuaName(T member) {
-        LuaName luaName = member.getAnnotation(LuaName.class);
-        return LuaString.valueOf(luaName != null ? luaName.value() : getLuaName(member.getName()));
-    }
-
-    public static String getLuaName(String name) {
-        return (name.startsWith("get") || name.startsWith("set") ? name.substring(3) : name).replaceAll("([a-z0-9])([A-Z]+)", "$1_$2").toLowerCase();
     }
 }

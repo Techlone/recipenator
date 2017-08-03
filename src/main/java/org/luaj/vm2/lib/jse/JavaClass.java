@@ -22,14 +22,13 @@
 package org.luaj.vm2.lib.jse;
 
 import org.luaj.vm2.LuaError;
+import org.luaj.vm2.LuaString;
 import org.luaj.vm2.LuaUserdata;
 import org.luaj.vm2.LuaValue;
 import recipenator.api.extention.LuaField;
+import recipenator.api.extention.LuaName;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
+import java.lang.reflect.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -123,7 +122,7 @@ class JavaClass extends JavaInstance implements CoerceJavaToLua.Coercion {
         Map<LuaValue, Field> fields = new HashMap<>();
         for (Field field : clazz.getFields()) {
             if (!Modifier.isPublic(field.getModifiers())) continue;
-            fields.put(LuaValue.valueOf(field.getName()), field);
+            fields.put(getLuaName(field), field);
             try {
                 if (!field.isAccessible())
                     field.setAccessible(true);
@@ -134,10 +133,10 @@ class JavaClass extends JavaInstance implements CoerceJavaToLua.Coercion {
     }
 
     private static Map<LuaValue, LuaValue> getMethods(Class clazz) {
-        Map<String, List<JavaMethod>> allMethods = new HashMap<>();
+        Map<LuaString, List<JavaMethod>> allMethods = new HashMap<>();
         for (Method method : clazz.getMethods()) {
             if (!Modifier.isPublic(method.getModifiers())) continue;
-            List<JavaMethod> sameNamedMethods = allMethods.computeIfAbsent(method.getName(), k -> new ArrayList<>());
+            List<JavaMethod> sameNamedMethods = allMethods.computeIfAbsent(getLuaName(method), k -> new ArrayList<>());
             sameNamedMethods.add(JavaMethod.forMethod(method));
         }
 
@@ -149,10 +148,10 @@ class JavaClass extends JavaInstance implements CoerceJavaToLua.Coercion {
         Map<LuaValue, LuaValue> methods = new HashMap<>();
         methods.put(NEW, constructors.size() == 1 ? constructors.get(0) : JavaConstructor.forConstructors(constructors));
 
-        for (Entry<String, List<JavaMethod>> entry : allMethods.entrySet()) {
+        for (Entry<LuaString, List<JavaMethod>> entry : allMethods.entrySet()) {
             List<JavaMethod> sameNamedMethods = entry.getValue();
             LuaValue javaMethod = sameNamedMethods.size() == 1 ? sameNamedMethods.get(0) : JavaMethod.forMethods(sameNamedMethods);
-            methods.put(LuaValue.valueOf(entry.getKey()), javaMethod);
+            methods.put(entry.getKey(), javaMethod);
         }
         return methods;
     }
@@ -165,5 +164,14 @@ class JavaClass extends JavaInstance implements CoerceJavaToLua.Coercion {
             innerClasses.put(LuaValue.valueOf(stub), forClass(innerClass));
         }
         return innerClasses;
+    }
+
+    public static <T extends AnnotatedElement & Member> LuaString getLuaName(T member) {
+        LuaName luaName = member.getAnnotation(LuaName.class);
+        return LuaString.valueOf(luaName != null ? luaName.value() : getLuaName(member.getName()));
+    }
+
+    public static String getLuaName(String name) {
+        return (name.startsWith("get") || name.startsWith("set") ? name.substring(3) : name).replaceAll("([a-z0-9])([A-Z]+)", "$1_$2").toLowerCase();
     }
 }

@@ -1,15 +1,8 @@
 package recipenator.testenv;
 
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import recipenator.api.lua.ILuaLibGetter;
 import recipenator.api.lua.LuaLibBase;
-import recipenator.components.ItemComponent;
-import recipenator.components.OreComponent;
-import recipenator.lualibs.FurnaceLib;
-import recipenator.lualibs.ItemsLib;
-import recipenator.lualibs.OreDictLib;
-import recipenator.lualibs.RecipesLib;
+import recipenator.lualibs.*;
 import recipenator.utils.NamesTree;
 import recipenator.utils.OreDictIndexer;
 
@@ -24,36 +17,19 @@ public class TestLuaLibGetter implements ILuaLibGetter {
             Collection<String> names = Files.readAllLines(Paths.get(".\\src\\test\\names.txt"));
             return new HashSet<LuaLibBase>() {{
                 add(new ItemsLib(NamesTree.getTreeRoot(names)));
-                add(new TestOreDictLib());
+                add(new OreDictLib() {
+                    @Override
+                    public OreDictIndexer get() {
+                        return new TestOreDictIndexer();
+                    }
+                });
                 add(new RecipesLib());
                 add(new FurnaceLib());
+                add(new NbtLib());
             }};
-        } catch (Exception ignored) {
+        } catch (Exception e) {
+            e.printStackTrace();
             throw new RuntimeException("All is gone!");
-        }
-    }
-
-    class TestOreDictLib extends OreDictLib {
-        @Override
-        public OreDictIndexer get() {
-            return new TestOreDictIndexer();
-        }
-
-        class TestOreDictIndexer extends OreDictIndexer {
-            @Override
-            public OreComponent get(String id) {
-                return new OreComponent(id) {
-
-                    @Override
-                    public List<ItemComponent> getComponents() {
-                        return new ArrayList<ItemComponent>() {{
-                            add(new ItemComponent(new NamesTree.NameNode("minecraft:flint")));
-                            add(new ItemComponent(new NamesTree.NameNode("minecraft:pumpkin_seeds")));
-                            add(new ItemComponent(new NamesTree.NameNode("minecraft:diamond_ore")));
-                        }};
-                    }
-                };
-            }
         }
     }
 }

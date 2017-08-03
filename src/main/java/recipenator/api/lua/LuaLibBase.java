@@ -7,13 +7,16 @@ import org.luaj.vm2.lib.jse.CoerceJavaToLua;
 import java.util.function.Supplier;
 
 public abstract class LuaLibBase<T> extends TwoArgFunction implements Supplier<T> {
-    @Override
-    public LuaValue call(LuaValue emptyString, LuaValue env) {
-        String libName = getName();
-        env.set(libName, CoerceJavaToLua.coerce(get()));
-        env.get("package").get("loaded").set(libName, env.get(libName));
-        return NIL;
+    public LuaLibBase() {
+        String libClassName = getClass().getSimpleName();
+        if (!libClassName.equals(""))
+            this.name = libClassName.substring(0, libClassName.length() - 3).toLowerCase();
     }
 
-    public abstract String getName();
+    @Override
+    public LuaValue call(LuaValue emptyString, LuaValue env) {
+        env.set(name, CoerceJavaToLua.coerce(get()));
+        env.get("package").get("loaded").set(name, env.get(name));
+        return NIL;
+    }
 }

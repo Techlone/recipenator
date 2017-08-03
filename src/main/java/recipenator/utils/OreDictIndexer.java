@@ -9,11 +9,11 @@ public class OreDictIndexer {
         return id instanceof String ? get((String) id) : index(id);
     }
 
-    public Object index(Object id) {
+    protected Object index(Object id) {
         return null;
     }
 
-    public OreComponent get(String id) {
+    public static OreComponent get(String id) {
         if (id.contains("*") || id.contains("|"))
             return new OrePatternComponent(id);
         if (OreDictionary.doesOreNameExist(id))

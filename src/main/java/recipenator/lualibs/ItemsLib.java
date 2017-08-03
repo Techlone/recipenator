@@ -26,11 +26,6 @@ public class ItemsLib extends LuaLibBase<ItemComponent> {
     }
 
     @Override
-    public String getName() {
-        return "items";
-    }
-
-    @Override
     public ItemComponent get() {
         return new ItemComponent(root);
     }
