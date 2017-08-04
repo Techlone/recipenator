@@ -1,5 +1,8 @@
 local mc = items.minecraft
-recipes:addShapeless(mc.egg, {mc.flint})
-recipes:addShaped(mc.egg, {{mc.cake}})
+
+local egg = mc.egg
+local flint = mc.flint
+recipes.add(egg, {{flint, flint}, {flint, flint}})
+recipes.add(egg * 3, {mc.cake})
 
 

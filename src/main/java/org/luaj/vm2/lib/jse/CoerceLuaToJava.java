@@ -21,6 +21,7 @@
 ******************************************************************************/
 package org.luaj.vm2.lib.jse;
 
+import net.minecraft.nbt.*;
 import org.luaj.vm2.LuaString;
 import org.luaj.vm2.LuaTable;
 import org.luaj.vm2.LuaValue;
@@ -320,6 +321,89 @@ public class CoerceLuaToJava {
 		}
 	}
 
+	static final class NbtCoercion implements Coercion {
+		public int score(LuaValue value) {
+			return value.type() != LuaValue.TTABLE ? SCORE_UNCOERCIBLE : canCoerce(value.checktable()) ? 0 : SCORE_WRONG_TYPE;
+		}
+
+		public Object coerce(LuaValue value) {
+			if (value.isnil()) return null;
+			return coerceInternal(value.checktable());
+		}
+
+		private boolean canCoerce(LuaTable table) {
+			if (table.getHashLength() == 0) {
+				for (int i = 1, l = table.getArrayLength(); i <= l; i++) {
+					LuaValue value = table.get(i);
+					if (!value.isnil() && !canBeTag(value)) return false;
+				}
+				return true;
+			}
+
+			LuaValue[] keys = table.keys();
+			for (LuaValue key : keys) {
+				if (!key.isstring()) return false;
+				LuaValue value = table.get(key);
+				if (!canBeTag(value)) return false;
+			}
+			return true;
+		}
+
+		public boolean canBeTag(LuaValue value) {
+			switch (value.type()) {
+				case LuaValue.TBOOLEAN:
+				case LuaValue.TNUMBER:
+				case LuaValue.TSTRING:
+					return true;
+				case LuaValue.TUSERDATA:
+					return value.checkuserdata() instanceof NBTBase;
+				case LuaValue.TTABLE:
+					return canCoerce(value.checktable());
+				default:
+					return false;
+			}
+		}
+
+		private NBTBase coerceInternal(LuaTable table) {
+			if (table.getHashLength() == 0) {
+				NBTTagList list = new NBTTagList();
+				for (int i = 1, l = table.getArrayLength(); i <= l; i++) {
+					LuaValue value = table.get(i);
+					if (value.isnil()) continue;
+					list.appendTag(toTag(value));
+				}
+				return list;
+			}
+
+			LuaValue[] keys = table.keys();
+			NBTTagCompound nbt = new NBTTagCompound();
+			for (LuaValue key : keys) {
+				if (!key.isstring()) throw new RuntimeException("The key should be a string");
+				nbt.setTag(key.checkjstring(), toTag(table.get(key)));
+			}
+			return nbt;
+		}
+
+		private NBTBase toTag(LuaValue value) {
+			switch (value.type()) {
+				case LuaValue.TBOOLEAN:
+					return new NBTTagByte((byte) (value.toboolean() ? 1 : 0));
+				case LuaValue.TNUMBER:
+					return new NBTTagInt(value.toint());
+				case LuaValue.TSTRING:
+					return new NBTTagString(value.tojstring());
+				case LuaValue.TUSERDATA:
+					Object tag = value.checkuserdata();
+					if (!(tag instanceof NBTBase)) throw new RuntimeException("Not a NBTBase object");
+					return (NBTBase) tag;
+				case LuaValue.TTABLE:
+					return coerceInternal(value.checktable());
+				default:
+					throw new RuntimeException("Can't convert LuaValue to NBTBase");
+			}
+		}
+	}
+
 	static {
 		Coercion boolCoercion   = new BoolCoercion();
 		Coercion byteCoercion   = new NumericCoercion(NumericCoercion.TARGET_TYPE_BYTE);
@@ -350,6 +434,7 @@ public class CoerceLuaToJava {
 		COERCIONS.put( Double.class, doubleCoercion );
 		COERCIONS.put( String.class, stringCoercion );
 		COERCIONS.put( byte[].class, bytesCoercion );
+		COERCIONS.put(NBTTagCompound.class, new NbtCoercion());
 	}
 	
 	static Coercion getCoercion(Class c) {

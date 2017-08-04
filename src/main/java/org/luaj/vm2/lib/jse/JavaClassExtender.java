@@ -2,12 +2,11 @@ package org.luaj.vm2.lib.jse;
 
 import org.luaj.vm2.LuaString;
 import recipenator.api.extention.LuaField;
-import recipenator.api.extention.LuaName;
 import recipenator.utils.CommonHelper;
 
 import java.lang.reflect.*;
 
-import static org.luaj.vm2.lib.jse.JavaClass.getLuaName;
+import static org.luaj.vm2.lib.jse.JavaClass.getLuaNames;
 
 public class JavaClassExtender {
     public static void extendBy(Class<?> extClass) {
@@ -19,7 +18,9 @@ public class JavaClassExtender {
         for (Field field : extClass.getDeclaredFields()) {
             if (!isPublicStatic(field) || !field.getType().equals(LuaField.class)) continue;
             LuaField<?, ?> luaField = (LuaField<?, ?>) CommonHelper.ignoreErrors(field::get, null);
-            JavaClass.forClass(getFirstGenericType(field)).extendedFields.put(getLuaName(field), luaField);
+            for (LuaString luaName : getLuaNames(field)) {
+                JavaClass.forClass(getFirstGenericType(field)).extendedFields.put(luaName, luaField);
+            }
         }
     }
 
@@ -30,7 +31,9 @@ public class JavaClassExtender {
 //            if (method.isAnnotationPresent(Metamethod.class)) {
 //                CoerceJavaToLua.InstanceCoercion.extendMetatable(baseClass, method);
 //            } else {
-            JavaClass.forClass(baseClass).methods.put(getLuaName(method), JavaMethod.forMethod(method));
+            for (LuaString luaName : getLuaNames(method)) {
+                JavaClass.forClass(baseClass).methods.put(luaName, JavaMethod.forMethod(method));
+            }
 //            }
         }
     }

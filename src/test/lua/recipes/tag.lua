@@ -1,2 +1,2 @@
-print(nbt.byte(1))
-
+-- items.minecraft.egg:tag({["GT.ToolStats"] = {PrimaryMaterial = "Iridium", MaxDamage = nbt.long(128000), SecondaryMaterial = "Steel"}})
+local b = items.minecraft.cake .. items.minecraft.bread .. items.minecraft.apple

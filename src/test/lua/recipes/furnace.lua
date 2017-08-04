@@ -1,4 +1,4 @@
 local mc = items.minecraft
-furnace:addRecipe(mc.egg, mc.flint)
+furnace.add(mc.egg, mc.flint)
 
 

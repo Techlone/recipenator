@@ -46,7 +46,7 @@ public class ItemComponent extends RecipeComponentBase<ItemStack> {
         Object base = super.index(id);
         if (base != null) return base;
 
-        if (id.charAt(0) == '_') //mymod.item._100 -> mymod.item.100
+        if (id.length() > 1 && id.charAt(0) == '_' && Character.isDigit(id.charAt(1))) //mymod.item._100 -> mymod.item.100
             id = id.substring(1);
         return changeNode(node.next(id));
     }

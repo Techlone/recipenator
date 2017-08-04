@@ -117,8 +117,13 @@ public class CoerceJavaToLua {
 		private final static Set<String> availableMetamethods = Stream.of(
 				LuaValue.INDEX,
 				LuaValue.NEWINDEX,
-				LuaValue.CALL,
-				LuaValue.MUL
+				LuaValue.ADD,
+				LuaValue.SUB,
+				LuaValue.DIV,
+				LuaValue.MUL,
+				LuaValue.POW,
+				LuaValue.MOD,
+				LuaValue.CONCAT
 		).map(LuaString::tojstring).collect(Collectors.toSet());
 		private final static Map<Class, LuaTable> metatables = new ConcurrentHashMap<>();
 

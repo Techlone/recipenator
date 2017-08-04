@@ -12,18 +12,18 @@ import recipenator.utils.RecipeHelper;
 import java.util.Arrays;
 
 public class RecipesManager {
-    public void addRecipe(IRecipe recipe) {
+    private static void addRecipe(IRecipe recipe) {
         GameRegistry.addRecipe(recipe);
         RecipenatorMod.addCancelAction(() -> CraftingManager.getInstance().getRecipeList().remove(recipe));
     }
 
-    public void addShaped(IRecipeComponent<ItemStack> result, IRecipeComponent[][] rawInputs) {
+    public static void add(IRecipeComponent<ItemStack> result, IRecipeComponent[][] rawInputs) {
         RecipeHelper.Size size = RecipeHelper.rectangulate(rawInputs);
         IRecipeComponent[] inputs = Arrays.stream(rawInputs).flatMap(Arrays::stream).toArray(IRecipeComponent[]::new);
         addRecipe(new RecipeShaped(size, inputs, result));
     }
 
-    public void addShapeless(IRecipeComponent<ItemStack> result, IRecipeComponent[] rawInputs) {
+    public static void add(IRecipeComponent<ItemStack> result, IRecipeComponent[] rawInputs) {
         IRecipeComponent[] inputs = Arrays.stream(rawInputs).filter(NullComponent::isNull).toArray(IRecipeComponent[]::new);
         addRecipe(new RecipeShapeless(inputs, result));
     }

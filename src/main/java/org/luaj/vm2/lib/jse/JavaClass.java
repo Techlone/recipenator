@@ -122,7 +122,9 @@ class JavaClass extends JavaInstance implements CoerceJavaToLua.Coercion {
         Map<LuaValue, Field> fields = new HashMap<>();
         for (Field field : clazz.getFields()) {
             if (!Modifier.isPublic(field.getModifiers())) continue;
-            fields.put(getLuaName(field), field);
+            for (LuaString luaName : getLuaNames(field)) {
+                fields.put(luaName, field);
+            }
             try {
                 if (!field.isAccessible())
                     field.setAccessible(true);
@@ -136,8 +138,11 @@ class JavaClass extends JavaInstance implements CoerceJavaToLua.Coercion {
         Map<LuaString, List<JavaMethod>> allMethods = new HashMap<>();
         for (Method method : clazz.getMethods()) {
             if (!Modifier.isPublic(method.getModifiers())) continue;
-            List<JavaMethod> sameNamedMethods = allMethods.computeIfAbsent(getLuaName(method), k -> new ArrayList<>());
-            sameNamedMethods.add(JavaMethod.forMethod(method));
+            if (method.getName().startsWith("__")) continue;
+            for (LuaString luaName : getLuaNames(method)) {
+                List<JavaMethod> sameNamedMethods = allMethods.computeIfAbsent(luaName, k -> new ArrayList<>());
+                sameNamedMethods.add(JavaMethod.forMethod(method));
+            }
         }
 
         List<JavaConstructor> constructors = new ArrayList<>();
@@ -166,12 +171,24 @@ class JavaClass extends JavaInstance implements CoerceJavaToLua.Coercion {
         return innerClasses;
     }
 
-    public static <T extends AnnotatedElement & Member> LuaString getLuaName(T member) {
-        LuaName luaName = member.getAnnotation(LuaName.class);
-        return LuaString.valueOf(luaName != null ? luaName.value() : getLuaName(member.getName()));
+    public static <T extends AnnotatedElement & Member> List<LuaString> getLuaNames(T member) {
+        List<LuaString> names = new ArrayList<>();
+        String name = member.getName();
+        names.add(LuaValue.valueOf(name));
+        names.add(LuaValue.valueOf(getLuaName(name)));
+        if (member instanceof Field && (name.startsWith("get") || name.startsWith("set"))) {
+            names.add(LuaValue.valueOf(getLuaName(name.substring(3))));
+        }
+        LuaName[] luaNames = member.getAnnotationsByType(LuaName.class);
+        for (LuaName luaName : luaNames) {
+            LuaString luaString = LuaValue.valueOf(luaName.value());
+            if (!names.contains(luaString))
+                names.add(luaString);
+        }
+        return names;
     }
 
     public static String getLuaName(String name) {
-        return (name.startsWith("get") || name.startsWith("set") ? name.substring(3) : name).replaceAll("([a-z0-9])([A-Z]+)", "$1_$2").toLowerCase();
+        return name.replaceAll("([a-z0-9])([A-Z]+)", "$1_$2").toLowerCase();
     }
 }

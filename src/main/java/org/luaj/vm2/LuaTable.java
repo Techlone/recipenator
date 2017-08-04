@@ -189,7 +189,7 @@ public class LuaTable extends LuaValue implements Metatable {
 	 * Get the length of the array part of the table. 
 	 * @return length of the array part, does not relate to count of objects in the table. 
 	 */
-	protected int getArrayLength() {
+	public int getArrayLength() {
 		return array.length;
 	}
 
@@ -197,7 +197,7 @@ public class LuaTable extends LuaValue implements Metatable {
 	 * Get the length of the hash part of the table. 
 	 * @return length of the hash part, does not relate to count of objects in the table. 
 	 */
-	protected int getHashLength() {
+	public int getHashLength() {
 		return hash.length;
 	}
 	
