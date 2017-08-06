@@ -48,13 +48,6 @@ public class LuaExecutor_Should {
     }
 
     @Test
-    public void ExecuteScript_GlobalTest() {
-        execute("global_test");
-        String output = outContent.toString();
-        Assert.assertEquals("123", output.substring(output.length() - 3));
-    }
-
-    @Test
     public void ExecuteScript_Items() {
         execute("items");
     }

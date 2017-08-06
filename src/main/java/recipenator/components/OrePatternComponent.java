@@ -14,11 +14,10 @@ public class OrePatternComponent extends OreComponent {
     private final List<String> ids = new ArrayList<>();
 
     public OrePatternComponent(String orePattern) {
-        super(orePattern);
-        initIds(orePattern);
+        this(orePattern, 1, 0, null);
     }
 
-    public OrePatternComponent(String orePattern, int count, int meta, NBTTagCompound tag) {
+    protected OrePatternComponent(String orePattern, int count, int meta, NBTTagCompound tag) {
         super(orePattern, count, meta, tag);
         initIds(orePattern);
     }
@@ -31,10 +30,12 @@ public class OrePatternComponent extends OreComponent {
     }
 
     @Override
-    public void add(ItemComponent... items) {
+    public void add(IRecipeComponent<?>... components) {
         for (String id : ids) {
-            for (ItemComponent item : items) {
-                OreDictionary.registerOre(id, item.getRecipeItem());
+            for (IRecipeComponent<?> component : components) {
+                for (ItemStack item : component.getAllItems()) {
+                    OreDictionary.registerOre(id, item);
+                }
             }
         }
     }

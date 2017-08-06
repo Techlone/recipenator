@@ -17,14 +17,16 @@ public class OreComponent extends RecipeComponentBase<List<ItemStack>> {
         this(id, 1, 0, null);
     }
 
-    public OreComponent(String id, int count, int meta, NBTTagCompound tag) {
+    protected OreComponent(String id, int count, int meta, NBTTagCompound tag) {
         super(count, meta, tag);
         this.id = id;
     }
 
-    public void add(ItemComponent... items) {
-        for (ItemComponent item : items) {
-            OreDictionary.registerOre(id, item.getRecipeItem());
+    public void add(IRecipeComponent<?>... components) {
+        for (IRecipeComponent<?> component : components) {
+            for (ItemStack item : component.getAllItems()) {
+                OreDictionary.registerOre(id, item);
+            }
         }
     }
 
@@ -39,7 +41,7 @@ public class OreComponent extends RecipeComponentBase<List<ItemStack>> {
 
     @Override
     public boolean equals(ItemStack inputItem) {
-        for (ItemStack recipeItem : this.getRecipeItem())
+        for (ItemStack recipeItem : getRecipeItem())
             if (RecipeHelper.isEquals(recipeItem, inputItem))
                 return true;
         return false;

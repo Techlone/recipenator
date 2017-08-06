@@ -8,24 +8,24 @@ import java.util.Collection;
 import java.util.Collections;
 
 public class FurnaceRecipeManager {
-    public void addRecipe(IRecipeComponent<ItemStack> output, IRecipeComponent<?> input) {
-        addRecipe(output, input, 0);
+    public static void add(IRecipeComponent<ItemStack> output, IRecipeComponent<?> input) {
+        add(output, input, 0);
     }
 
-    public void addRecipe(IRecipeComponent<ItemStack> output, IRecipeComponent<?> input, float exp) {
+    public static void add(IRecipeComponent<ItemStack> output, IRecipeComponent<?> input, float exp) {
         ItemStack outputItem = output.getRecipeItem();
         for (ItemStack inputItem : input.getAllItems()) {
             FurnaceRecipes.smelting().func_151394_a(inputItem, outputItem, exp);
         }
     }
 
-    public void removeByInput(IRecipeComponent<?> input) {
+    public static void removeInput(IRecipeComponent<?> input) {
         for (ItemStack inputItem : input.getAllItems()) {
             FurnaceRecipes.smelting().getSmeltingList().remove(inputItem);
         }
     }
 
-    public void removeByOutput(IRecipeComponent<ItemStack> output) {
+    public static void removeOutput(IRecipeComponent<ItemStack> output) {
         ItemStack outputItem = output.getRecipeItem();
         Collection friedItems = FurnaceRecipes.smelting().getSmeltingList().values();
         friedItems.removeAll(Collections.singleton(outputItem));

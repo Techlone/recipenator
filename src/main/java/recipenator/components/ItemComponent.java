@@ -23,7 +23,7 @@ public class ItemComponent extends RecipeComponentBase<ItemStack> {
         this(node, 1, 0, null);
     }
 
-    public ItemComponent(NamesTree.NameNode node, int count, int meta, NBTTagCompound tag) {
+    protected ItemComponent(NamesTree.NameNode node, int count, int meta, NBTTagCompound tag) {
         super(count, meta, tag);
         this.node = node;
     }

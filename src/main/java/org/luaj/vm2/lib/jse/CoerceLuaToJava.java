@@ -389,7 +389,7 @@ public class CoerceLuaToJava {
 				case LuaValue.TBOOLEAN:
 					return new NBTTagByte((byte) (value.toboolean() ? 1 : 0));
 				case LuaValue.TNUMBER:
-					return new NBTTagInt(value.toint());
+					return value.isint() ? new NBTTagInt(value.toint()) : new NBTTagDouble(value.todouble());
 				case LuaValue.TSTRING:
 					return new NBTTagString(value.tojstring());
 				case LuaValue.TUSERDATA:

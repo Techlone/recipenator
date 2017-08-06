@@ -175,7 +175,11 @@ class JavaClass extends JavaInstance implements CoerceJavaToLua.Coercion {
         List<LuaString> names = new ArrayList<>();
         String name = member.getName();
         names.add(LuaValue.valueOf(name));
-        names.add(LuaValue.valueOf(getLuaName(name)));
+        {
+            String luaName = getLuaName(name);
+            if (!name.equals(luaName))
+                names.add(LuaValue.valueOf(getLuaName(name)));
+        }
         if (member instanceof Field && (name.startsWith("get") || name.startsWith("set"))) {
             names.add(LuaValue.valueOf(getLuaName(name.substring(3))));
         }

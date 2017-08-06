@@ -8,7 +8,10 @@ import java.util.function.Supplier;
 
 public abstract class LuaLibBase<T> extends TwoArgFunction implements Supplier<T> {
     public LuaLibBase() {
-        String libClassName = getClass().getSimpleName();
+        Class<?> clazz = getClass();
+        if (clazz.isAnonymousClass())
+            clazz = clazz.getSuperclass();
+        String libClassName = clazz.getSimpleName();
         if (!libClassName.equals(""))
             this.name = libClassName.substring(0, libClassName.length() - 3).toLowerCase();
     }

@@ -3,6 +3,7 @@ package recipenator.api.component;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.oredict.OreDictionary;
 import recipenator.api.extention.LuaName;
+import recipenator.components.BundleComponent;
 
 public abstract class RecipeComponentBase<T> implements IRecipeComponent<T> {
     public static int anyMeta = OreDictionary.WILDCARD_VALUE;
@@ -10,10 +11,6 @@ public abstract class RecipeComponentBase<T> implements IRecipeComponent<T> {
     protected final int count;
     protected final int meta;
     protected final NBTTagCompound tag;
-
-    protected RecipeComponentBase() {
-        this(1, 0, null);
-    }
 
     protected RecipeComponentBase(int count, int meta, NBTTagCompound tag) {
         this.count = count;
@@ -40,14 +37,14 @@ public abstract class RecipeComponentBase<T> implements IRecipeComponent<T> {
     }
 
     public final Object __mul(Object operand) {
-        return operand instanceof Integer ? increaseCount((int) operand) : mul(operand);
+        return operand instanceof Integer ? mulCount((int) operand) : mul(operand);
     }
 
     protected Object mul(Object operand) {
         return null;
     }
 
-    protected IRecipeComponent<T> increaseCount(int multiplier) {
+    protected IRecipeComponent<T> mulCount(int multiplier) {
         return multiplier == 1 ? this : newInstance(count * multiplier, meta, tag);
     }
 
@@ -56,7 +53,15 @@ public abstract class RecipeComponentBase<T> implements IRecipeComponent<T> {
         return !tag.equals(this.tag) ? newInstance(count, meta, tag) : this;
     }
 
-    public final Object __concat(Object component) {
+    public final Object __concat(Object operand) {
+        return operand instanceof IRecipeComponent ? makeBundle((IRecipeComponent) operand) : null;
+    }
+
+    protected BundleComponent makeBundle(IRecipeComponent operand) {
+        return new BundleComponent(this, operand);
+    }
+
+    protected Object concat(Object operand) {
         return null;
     }
 

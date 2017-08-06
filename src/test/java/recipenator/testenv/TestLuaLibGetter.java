@@ -3,6 +3,7 @@ package recipenator.testenv;
 import recipenator.api.lua.ILuaLibGetter;
 import recipenator.api.lua.LuaLibBase;
 import recipenator.lualibs.*;
+import recipenator.recipes.FurnaceRecipeManager;
 import recipenator.utils.NamesTree;
 import recipenator.utils.OreDictIndexer;
 
@@ -23,8 +24,18 @@ public class TestLuaLibGetter implements ILuaLibGetter {
                         return new TestOreDictIndexer();
                     }
                 });
-                add(new RecipesLib());
-                add(new FurnaceLib());
+                add(new RecipesLib() {
+                    @Override
+                    public TestRecipesManager get() {
+                        return new TestRecipesManager();
+                    }
+                });
+                add(new FurnaceLib() {
+                    @Override
+                    public FurnaceRecipeManager get() {
+                        return new TestFurnaceRecipeManager();
+                    }
+                });
                 add(new NbtLib());
             }};
         } catch (Exception e) {
