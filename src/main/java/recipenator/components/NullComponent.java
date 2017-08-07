@@ -1,7 +1,6 @@
 package recipenator.components;
 
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import recipenator.api.component.IRecipeComponent;
 
 import java.util.ArrayList;

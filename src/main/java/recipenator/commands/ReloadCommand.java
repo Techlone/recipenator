@@ -4,7 +4,6 @@ import net.minecraft.command.ICommandSender;
 import recipenator.RecipenatorMod;
 import recipenator.api.SubCommandBase;
 import recipenator.api.lua.ILuaExecutor;
-import recipenator.utils.ScriptHelper;
 
 import java.util.List;
 

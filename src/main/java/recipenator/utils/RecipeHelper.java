@@ -3,6 +3,7 @@ package recipenator.utils;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.oredict.OreDictionary;
 import recipenator.api.component.IRecipeComponent;
 
 import java.util.Arrays;
@@ -21,28 +22,52 @@ public class RecipeHelper {
         return input;
     }
 
-    public static ItemStack findEqualsItem(Set<ItemStack> input, IRecipeComponent component) {
+    public static ItemStack findEqualItem(Set<ItemStack> input, IRecipeComponent component) {
         for (ItemStack item : input)
             if (component.equals(item))
                 return item;
         return null;
     }
 
-    public static boolean isEquals(IRecipeComponent component, ItemStack item) {
+    public enum ComparisonType {
+        NONE,
+        STRICT,
+        NONSTICK
+    }
+
+    public static boolean areEqual(IRecipeComponent component, ItemStack item) {
         if (component == null) return item == null;
         return item != null && component.equals(item);
     }
 
-    public static boolean isEquals(ItemStack recipeItem, ItemStack inputItem) {
-        if (recipeItem == null) return inputItem == null;
-        return inputItem != null && recipeItem.isItemEqual(inputItem) && isEqualsTag(recipeItem, inputItem);
+    public static boolean areEqual(ItemStack recipeItem, ItemStack inputItem) {
+        return areEqual(recipeItem, inputItem, ComparisonType.NONSTICK);
     }
 
-    public static boolean isEqualsTag(ItemStack recipeItem, ItemStack inputItem) {
-        NBTTagCompound recipeTag = recipeItem.getTagCompound();
-        NBTTagCompound inputTag = inputItem.getTagCompound();
+    public static boolean areEqual(ItemStack recipeItem, ItemStack inputItem, ComparisonType tagComparisonType) {
+        if (recipeItem == null) return inputItem == null;
+        return inputItem != null
+                && recipeItem.getItem() == inputItem.getItem()
+                && areMetaEqual(recipeItem.getItemDamage(), inputItem.getItemDamage())
+                && areTagsEqual(recipeItem.getTagCompound(), inputItem.getTagCompound(), tagComparisonType);
+    }
+
+    private static boolean areMetaEqual(int recipeMeta, int inputMeta) {
+        return recipeMeta == inputMeta || recipeMeta == OreDictionary.WILDCARD_VALUE || inputMeta == OreDictionary.WILDCARD_VALUE;
+    }
+
+    public static boolean areTagsEqual(NBTTagCompound recipeTag, NBTTagCompound inputTag, ComparisonType comparisonType) {
         if (recipeTag == null) return inputTag == null;
-        return inputTag != null && recipeTag.equals(inputTag);
+        return inputTag != null && (comparisonType == ComparisonType.NONSTICK
+                ? doesTagContain(inputTag, recipeTag)
+                : comparisonType != ComparisonType.STRICT || recipeTag.equals(inputTag));
+    }
+
+    public static boolean doesTagContain(NBTTagCompound base, NBTTagCompound input) {
+        for (String tagName : (Set<String>) input.func_150296_c()) {
+            if (!base.hasKey(tagName) || !input.getTag(tagName).equals(base.getTag(tagName))) return false;
+        }
+        return true;
     }
 
     public static boolean returnFirstTrueInDoubleCycle(BiFunction<Integer, Integer, Boolean> func, int xm, int ym) {

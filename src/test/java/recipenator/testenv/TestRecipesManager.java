@@ -1,7 +1,6 @@
 package recipenator.testenv;
 
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
 import recipenator.api.component.IRecipeComponent;
 import recipenator.recipes.RecipesManager;
 

@@ -5,7 +5,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.oredict.OreDictionary;
 import recipenator.api.component.IRecipeComponent;
 import recipenator.api.component.RecipeComponentBase;
-import recipenator.utils.RecipeHelper;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -41,10 +40,13 @@ public class OreComponent extends RecipeComponentBase<List<ItemStack>> {
 
     @Override
     public boolean equals(ItemStack inputItem) {
-        for (ItemStack recipeItem : getRecipeItem())
-            if (RecipeHelper.isEquals(recipeItem, inputItem))
-                return true;
+        int id = OreDictionary.getOreID(this.id);
+        for (int i : OreDictionary.getOreIDs(inputItem)) if (i == id) return true;
         return false;
+//        for (ItemStack recipeItem : getRecipeItem())
+//            if (RecipeHelper.areEqual(recipeItem, inputItem))
+//                return true;
+//        return false;
     }
 
     @Override

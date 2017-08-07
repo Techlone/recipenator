@@ -64,7 +64,7 @@ public class ItemComponent extends RecipeComponentBase<ItemStack> {
 
     @Override
     public boolean equals(ItemStack inputItem) {
-        return RecipeHelper.isEquals(this.getRecipeItem(), inputItem);
+        return RecipeHelper.areEqual(getRecipeItem(), inputItem);
     }
 
     @Override

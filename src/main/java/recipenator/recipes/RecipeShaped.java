@@ -37,8 +37,8 @@ public class RecipeShaped implements IRecipe {
             ItemStack item = inventory.getStackInRowAndColumn(x, y);
             int xi = x - xo, yi = y - yo;
             int i = yi * size.width + xi;
-            return RecipeHelper.isEquals(getComponent(i), item);
-                    //|| mirrored && RecipeHelper.isEquals(getComponent(i + size.width - ((xi << 1) + 1)), item);
+            return RecipeHelper.areEqual(getComponent(i), item);
+                    //|| mirrored && RecipeHelper.areEqual(getComponent(i + size.width - ((xi << 1) + 1)), item);
         }, MAX_WIDTH, MAX_HEIGHT);
     }
 

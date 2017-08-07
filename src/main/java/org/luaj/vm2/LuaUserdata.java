@@ -22,7 +22,6 @@
 package org.luaj.vm2;
 
 
-import net.minecraftforge.oredict.OreDictionary;
 import org.luaj.vm2.lib.jse.CoerceJavaToLua;
 import recipenator.components.OreComponent;
 

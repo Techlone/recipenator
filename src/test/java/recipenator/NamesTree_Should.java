@@ -3,12 +3,9 @@ package recipenator;
 import org.junit.Test;
 import recipenator.utils.NamesTree;
 
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 public class NamesTree_Should {
     @Test

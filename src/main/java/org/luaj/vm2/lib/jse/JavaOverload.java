@@ -1,6 +1,5 @@
 package org.luaj.vm2.lib.jse;
 
-import org.luaj.vm2.LuaFunction;
 import org.luaj.vm2.LuaValue;
 import org.luaj.vm2.Varargs;
 import org.luaj.vm2.lib.VarArgFunction;

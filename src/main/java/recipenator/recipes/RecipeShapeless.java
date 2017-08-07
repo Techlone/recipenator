@@ -24,7 +24,7 @@ public class RecipeShapeless implements IRecipe {
         if (inputs.size() != this.inputs.length) return false;
         ItemStack itemStack;
         for (IRecipeComponent component : this.inputs) {
-            if ((itemStack = RecipeHelper.findEqualsItem(inputs, component)) == null) return false;
+            if ((itemStack = RecipeHelper.findEqualItem(inputs, component)) == null) return false;
             inputs.remove(itemStack);
         }
         return true;
