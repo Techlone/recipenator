@@ -12,6 +12,7 @@ import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -19,7 +20,7 @@ public class LuaExecutor implements ILuaExecutor {
     private final Globals globals;
     private final String relativePath;
     private List<String> scriptNames;
-    private Map<String, List<ICancelable>> cancelActions;
+    private Map<String, List<ICancelable>> cancelActions = new HashMap<>();
     private String currentScriptName;
 
     public LuaExecutor(File directory, ILuaLibGetter environment) {
@@ -63,7 +64,8 @@ public class LuaExecutor implements ILuaExecutor {
             loadedFile = globals.loadfile(filename);
         } catch (Exception e) {
             System.err.println("Can't load file: " + filename);
-            printFullStackTrace(e);
+            //printFullStackTrace(e);
+            e.printStackTrace();
             return;
         }
 
@@ -71,7 +73,8 @@ public class LuaExecutor implements ILuaExecutor {
             loadedFile.call();
         } catch (Exception e) {
             System.err.println("Can't execute file: " + filename);
-            printFullStackTrace(e);
+            //printFullStackTrace(e);
+            e.printStackTrace();
         }
     }
 

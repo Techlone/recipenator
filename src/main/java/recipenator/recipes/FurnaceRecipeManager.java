@@ -17,6 +17,7 @@ public class FurnaceRecipeManager {
         ItemStack outputItem = output.getRecipeItem();
         for (ItemStack inputItem : input.getAllItems()) {
             FurnaceRecipes.smelting().func_151394_a(inputItem, outputItem, exp);
+            RecipenatorMod.addCancelAction(() -> FurnaceRecipes.smelting().getSmeltingList().remove(inputItem));
         }
     }
 

@@ -13,14 +13,8 @@ public class JavaClass_getLuaName_Should {
     }
 
     @Test
-    public void ConvertMethodNameToFieldName_GetContains() {
-        String result = getLuaName("getMyCoolField");
-        Assert.assertEquals("my_cool_field", result);
-    }
-
-    @Test
     public void ConvertMethodNameToFieldName_SeveralUpper() {
-        String result = getLuaName("getMMMMyCoolField");
+        String result = getLuaName("MMMMyCoolField");
         Assert.assertEquals("mmmmy_cool_field", result);
     }
     @Test
@@ -30,14 +24,8 @@ public class JavaClass_getLuaName_Should {
     }
 
     @Test
-    public void ConvertMethodNameToFieldName_GetContainsWithNum() {
-        String result = getLuaName("getMy123CoolField");
-        Assert.assertEquals("my123_cool_field", result);
-    }
-
-    @Test
     public void ConvertMethodNameToFieldName_SeveralUpperWithNum() {
-        String result = getLuaName("getMM123MMy1CoolField");
+        String result = getLuaName("MM123MMy1CoolField");
         Assert.assertEquals("mm123_mmy1_cool_field", result);
     }
 }

@@ -61,7 +61,7 @@ dependencies {
 processResources {
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
-        expand 'rnid': rnname, 'version': finalversion
+        expand 'rnid': rnname, 'rnname': rnname, 'version': finalversion, 'mcversion': mcversion
     }
 
     from(sourceSets.main.resources.srcDirs) {
