@@ -1,9 +1,6 @@
 package recipenator.lualibs;
 
-import net.minecraft.nbt.NBTTagByte;
-import net.minecraft.nbt.NBTTagFloat;
-import net.minecraft.nbt.NBTTagLong;
-import net.minecraft.nbt.NBTTagShort;
+import net.minecraft.nbt.*;
 import recipenator.api.extention.LuaName;
 
 public class NbtProvider {
@@ -25,5 +22,15 @@ public class NbtProvider {
     @LuaName("float")
     public static NBTTagFloat toFloat(double num) {
         return new NBTTagFloat((float) num);
+    }
+
+    @LuaName("bytes")
+    public static NBTTagByteArray toBytes(byte... bytes) {
+        return new NBTTagByteArray(bytes);
+    }
+
+    @LuaName("ints")
+    public static NBTTagIntArray toInts(int... ints) {
+        return new NBTTagIntArray(ints);
     }
 }

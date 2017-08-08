@@ -1,6 +1,11 @@
 package recipenator.utils;
 
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
+
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class NamesTree {
     public static NameNode getTreeRoot(Collection names) {
@@ -44,6 +49,25 @@ public class NamesTree {
         } while (i < l);
 
         return result;
+    }
+
+    public static String getLuaName(ItemStack item) {
+        String name = Item.itemRegistry.getNameForObject(item.getItem());
+        StringBuilder sb = new StringBuilder();
+
+        for (String nodeName : getNameNodes(name)) {
+            if (Character.isDigit(nodeName.charAt(0))) sb.append("_");
+            sb.append(nodeName).append(".");
+        }
+
+        int meta = item.getItemDamage();
+        if (meta == OreDictionary.WILDCARD_VALUE) sb.append("any");
+        else {
+            sb.setLength(sb.length() - 1);
+            if (meta > 0) sb.append("[").append(meta).append("]");
+        }
+
+        return sb.toString();
     }
 
     public static boolean isInternalSymbol(char ch) {

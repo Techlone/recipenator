@@ -1,5 +1,6 @@
 package recipenator.components;
 
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -12,9 +13,10 @@ import java.util.Collections;
 import java.util.List;
 
 public class ItemComponent extends RecipeComponentBase<ItemStack> {
-    public static ItemComponent fromItemStack(ItemStack itemStack) {
-        NamesTree.NameNode nameNode = new NamesTree.NameNode(itemStack.getUnlocalizedName());
-        return new ItemComponent(nameNode, itemStack.stackSize, itemStack.getItemDamage(), itemStack.getTagCompound());
+    public static ItemComponent fromItemStack(ItemStack item) {
+        String name = Item.itemRegistry.getNameForObject(item.getItem());
+        NamesTree.NameNode nameNode = new NamesTree.NameNode(name);
+        return new ItemComponent(nameNode, item.stackSize, item.getItemDamage(), item.getTagCompound());
     }
 
     private final NamesTree.NameNode node;
