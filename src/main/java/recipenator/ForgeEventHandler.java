@@ -1,7 +1,6 @@
 package recipenator;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.oredict.OreDictionary;

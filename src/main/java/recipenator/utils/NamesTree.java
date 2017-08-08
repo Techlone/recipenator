@@ -5,7 +5,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class NamesTree {
     public static NameNode getTreeRoot(Collection names) {
