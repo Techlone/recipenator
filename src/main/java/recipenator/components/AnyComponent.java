@@ -6,12 +6,12 @@ import recipenator.api.component.IRecipeComponent;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NullComponent implements IRecipeComponent<ItemStack> {
-    public static final IRecipeComponent INSTANCE = new NullComponent();
+public class AnyComponent implements IRecipeComponent<ItemStack> {
+    public static final IRecipeComponent INSTANCE = new AnyComponent();
 
     @Override
     public boolean equals(ItemStack component) {
-        return component == null;
+        return true;
     }
 
     @Override
@@ -26,10 +26,6 @@ public class NullComponent implements IRecipeComponent<ItemStack> {
 
     @Override
     public String toString() {
-        return "null";
-    }
-
-    public static boolean isNull(IRecipeComponent component) {
-        return component == null || component == INSTANCE;
+        return "any";
     }
 }

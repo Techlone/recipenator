@@ -29,6 +29,10 @@ public class OreComponent extends RecipeComponentBase<List<ItemStack>> {
         }
     }
 
+    public void remove(IRecipeComponent<?> component) {
+
+    }
+
     public List<ItemComponent> getComponents() {
         return getRecipeItem().stream().map(ItemComponent::fromItemStack).collect(Collectors.toList());
     }

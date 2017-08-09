@@ -33,11 +33,16 @@ public class FurnaceRecipeManager {
             ItemStack input = entry.getKey();
             ItemStack output = entry.getValue();
             float exp = FurnaceRecipes.smelting().func_151398_b(input);
-            for (ItemStack item : items) {
-                if (!RecipeHelper.areEqual(item, isInput ? input : output)) continue;
+            if (component.equals(isInput ? input : output)) {
                 inputs.add(input);
                 RecipenatorMod.addCancelAction(() -> FurnaceRecipes.smelting().func_151394_a(input, output, exp));
             }
+//            for (ItemStack item : items) {
+//                if (RecipeHelper.areEqual(item, isInput ? input : output)) {
+//                    inputs.add(input);
+//                    RecipenatorMod.addCancelAction(() -> FurnaceRecipes.smelting().func_151394_a(input, output, exp));
+//                }
+//            }
         }
         for (ItemStack input : inputs)
             smeltingList.remove(input);

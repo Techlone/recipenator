@@ -9,12 +9,15 @@ import recipenator.api.component.IRecipeComponent;
 import recipenator.components.NullComponent;
 import recipenator.utils.RecipeHelper;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class RecipesManager {
     private static void addRecipe(IRecipe recipe) {
         GameRegistry.addRecipe(recipe);
-        RecipenatorMod.addCancelAction(() -> CraftingManager.getInstance().getRecipeList().remove(recipe));
+        RecipenatorMod.addCancelAction(() -> getRecipeList().remove(recipe));
     }
 
     public static void add(IRecipeComponent<ItemStack> result, IRecipeComponent[][] rawInputs) {
@@ -26,6 +29,24 @@ public class RecipesManager {
     public static void add(IRecipeComponent<ItemStack> result, IRecipeComponent[] rawInputs) {
         IRecipeComponent[] inputs = Arrays.stream(rawInputs).filter(NullComponent::isNull).toArray(IRecipeComponent[]::new);
         addRecipe(new RecipeShapeless(inputs, result));
+    }
+
+    public static void remove(IRecipeComponent<?> output) {
+        getRecipeList().removeAll(getRecipesByOutput(output));
+    }
+
+    public static void remove(IRecipeComponent<?> output, IRecipeComponent[] inputs) {
+        //getRecipesByOutput(output);
+    }
+
+    private static List<IRecipe> getRecipesByOutput(IRecipeComponent<?> output) {
+        return getRecipeList().stream()
+                .filter(recipe -> output.equals(recipe.getRecipeOutput()))
+                .collect(Collectors.toList());
+    }
+
+    private static List<IRecipe> getRecipeList() {
+        return (List<IRecipe>) CraftingManager.getInstance().getRecipeList();
     }
 
     public Object index(Object id) {

@@ -4,6 +4,7 @@ import net.minecraft.item.Item;
 import org.luaj.vm2.LuaValue;
 import org.luaj.vm2.lib.jse.CoerceJavaToLua;
 import recipenator.api.lua.LuaLibBase;
+import recipenator.components.AnyComponent;
 import recipenator.components.ItemComponent;
 import recipenator.components.NullComponent;
 import recipenator.utils.NamesTree;
@@ -21,7 +22,8 @@ public class ItemsLib extends LuaLibBase<ItemComponent> {
 
     @Override
     public LuaValue call(LuaValue modname, LuaValue env) {
-        env.set("null", CoerceJavaToLua.coerce(NullComponent.NULL));
+        env.set("null", CoerceJavaToLua.coerce(NullComponent.INSTANCE));
+        env.set("any", CoerceJavaToLua.coerce(AnyComponent.INSTANCE));
         return super.call(modname, env);
     }
 
