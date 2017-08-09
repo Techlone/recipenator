@@ -1,12 +1,13 @@
 package recipenator;
 
+import codechicken.lib.packet.PacketCustom;
+import codechicken.nei.NEICPH;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.discovery.ASMDataTable;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.event.FMLServerAboutToStartEvent;
-import cpw.mods.fml.common.event.FMLServerStartingEvent;
+import cpw.mods.fml.common.event.*;
+import net.minecraft.client.Minecraft;
+import net.minecraft.network.play.INetHandlerPlayClient;
 import net.minecraftforge.common.MinecraftForge;
 import org.luaj.vm2.lib.jse.JavaClassExtender;
 import recipenator.api.ICancelable;
@@ -43,16 +44,30 @@ public class RecipenatorMod {
     @EventHandler
     public void onInit(FMLInitializationEvent event) {
         if (!event.getSide().isClient()) return;
+        PacketCustom.assignHandler(NEICPH.channel, new NEICPH() {
+            @Override
+            public void handlePacket(PacketCustom packetCustom, Minecraft minecraft, INetHandlerPlayClient iNetHandlerPlayClient) {
+                super.handlePacket(packetCustom, minecraft, iNetHandlerPlayClient);
+                if (packetCustom.getType() == 1) {
+                    getLuaExecutor().executeAll();
+                }
+            }
+        });
         MinecraftForge.EVENT_BUS.register(new ForgeEventHandler());
     }
 
     @EventHandler
     public void beforeServerStart(FMLServerAboutToStartEvent event) {
-        getLuaExecutor().executeAll();
+        //getLuaExecutor().executeAll();
     }
 
     @EventHandler
     public void onServerStarting(FMLServerStartingEvent event) {
         event.registerServerCommand(new RecipenatorCommand());
+    }
+
+    @EventHandler
+    public void onServerStopping(FMLServerStoppingEvent event) {
+        getLuaExecutor().cancelAll();
     }
 }
